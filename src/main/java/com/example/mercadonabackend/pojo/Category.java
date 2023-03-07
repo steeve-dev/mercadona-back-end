@@ -1,16 +1,18 @@
 package com.example.mercadonabackend.pojo;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "category")
 public class Category {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id", nullable = false)
+    @SequenceGenerator(name="category_seq",
+            sequenceName = "category_seq",
+            allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "category_seq")
+    @Column(name = "category_id", updatable = false)
     private Long id;
 
     @Column(name = "name")
@@ -18,6 +20,20 @@ public class Category {
 
     @OneToMany(mappedBy = "category")
     private Set<Product> products = new LinkedHashSet<>();
+
+    public Category(Long id, String name, Set<Product> products) {
+        this.id = id;
+        this.name = name;
+        this.products = products;
+    }
+
+    public Category(Set<Product> products) {
+        this.products = products;
+    }
+
+    public Category() {
+
+    }
 
     public String getName() {
         return name;

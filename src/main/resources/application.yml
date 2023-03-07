@@ -1,1 +1,13 @@
-
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  datasource:
+    url: jdbc:postgresql://postgresql-steeve.alwaysdata.net/steeve_mercadona
+    username: steeve
+    password: Cycliste35
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true

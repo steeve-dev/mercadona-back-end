@@ -1,11 +1,10 @@
 package com.example.mercadonabackend.pojo;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 import java.util.Date;
 
 @Entity
-@Table(name = "promotion")
 public class Promotion {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -15,6 +14,15 @@ public class Promotion {
     @Temporal(TemporalType.DATE)
     @Column(name = "begin_date")
     private Date beginDate;
+
+    public Promotion(Long id, Date beginDate, Date endDate, Integer percentage, Product product) {
+        this.id = id;
+        this.beginDate = beginDate;
+        this.endDate = endDate;
+        this.percentage = percentage;
+        this.product = product;
+    }
+
 
     @Temporal(TemporalType.DATE)
     @Column(name = "end_date")
@@ -26,6 +34,10 @@ public class Promotion {
     @OneToOne(cascade = CascadeType.PERSIST, orphanRemoval = true)
     @JoinColumn(name = "product_id")
     private Product product;
+
+    public Promotion() {
+
+    }
 
     public Product getProduct() {
         return product;

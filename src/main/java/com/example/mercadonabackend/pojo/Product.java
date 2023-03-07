@@ -1,9 +1,8 @@
 package com.example.mercadonabackend.pojo;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "product")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -26,6 +25,25 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
+
+    public Product(Long id, String name, String description, Float price, Promotion promotion, Category category) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.promotion = promotion;
+        this.category = category;
+    }
+
+    public Product(Long id, Promotion promotion, Category category) {
+        this.id = id;
+        this.promotion = promotion;
+        this.category = category;
+    }
+
+    public Product(){
+
+    }
 
     public Category getCategory() {
         return category;
