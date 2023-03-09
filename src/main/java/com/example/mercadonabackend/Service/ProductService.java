@@ -9,9 +9,9 @@ public interface ProductService {
 
     List<Product> getAllProduct();
 
-    Product getProductById();
+    Product getProductById(Long id);
 
-    void updateProduct(Long productId,Product product);
+    void updateProduct(Long productId, Product product);
 
     void createProduct(Product product);
 

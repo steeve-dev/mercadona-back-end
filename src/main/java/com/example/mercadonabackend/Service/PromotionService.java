@@ -8,15 +8,12 @@ public interface PromotionService {
 
     List<Promotion> getAllPromotion();
 
-    Promotion getPromotionById();
+    Promotion getPromotionById(Long id);
 
     void createPromotion(Promotion promotion);
 
     void updatePromotion(Long promotionId, Promotion promotion);
 
     void deletePromotion(Long id);
-
-
-
 
 }

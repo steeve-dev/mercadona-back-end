@@ -7,8 +7,11 @@ import java.util.Date;
 @Entity
 public class Promotion {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id", nullable = false)
+    @SequenceGenerator(name="promotion_seq",
+            sequenceName = "promotion_seq",
+            allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "promotion_seq")
+    @Column(name = "promotion_id", updatable = false)
     private Long id;
 
     @Temporal(TemporalType.DATE)

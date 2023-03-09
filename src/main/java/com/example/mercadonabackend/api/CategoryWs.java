@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(ApiRegistration.REST_PREFIX + ApiRegistration.REST_MERCADONA)
+@RequestMapping(ApiRegistration.REST_PREFIX + ApiRegistration.REST_CATEGORY)
 public class CategoryWs {
 
     @Autowired
@@ -21,14 +21,15 @@ public class CategoryWs {
         return service.getAllCategory();
     }
 
-    @GetMapping("{name}")
-    public List<Category> getAllCategoryByName(@PathVariable(name="name") String name)
+    @GetMapping("{id}")
+    public Category getAllCategoryById(@PathVariable(name="id") Long id)
     {
-        return service.getAllCategoryByName(name);
+        return service.getAllCategoryById(id);
     }
 
     @PostMapping
     public void createCategory(@RequestBody Category category){
+
         service.createCategory(category);
     }
 

@@ -1,4 +1,11 @@
 package com.example.mercadonabackend.repository;
 
-public interface PromotionRepository {
+
+import com.example.mercadonabackend.pojo.Promotion;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface PromotionRepository extends JpaRepository<Promotion, Long> {
+
 }

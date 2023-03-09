@@ -5,8 +5,11 @@ import javax.persistence.*;
 @Entity
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id", nullable = false)
+    @SequenceGenerator(name="product_seq",
+            sequenceName = "product_seq",
+            allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_seq")
+    @Column(name = "product_id", updatable = false)
     private Long id;
 
     @Column(name = "name")
