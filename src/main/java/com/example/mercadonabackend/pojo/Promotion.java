@@ -2,10 +2,11 @@ package com.example.mercadonabackend.pojo;
 
 import javax.persistence.*;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-public class Promotion {
+public class Promotion implements Serializable {
     @Id
     @SequenceGenerator(name="promotion_seq",
             sequenceName = "promotion_seq",

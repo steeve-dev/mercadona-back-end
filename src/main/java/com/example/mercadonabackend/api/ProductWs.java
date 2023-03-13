@@ -10,7 +10,6 @@ import java.util.List;
 @RestController
 @RequestMapping(ApiRegistration.REST_PREFIX + ApiRegistration.REST_PRODUCT)
 public class ProductWs {
-
     @Autowired
     private ProductService service;
 
@@ -28,7 +27,6 @@ public class ProductWs {
     public void updateProduct(@PathVariable(name="id")Long id, @RequestBody Product product){
         service.updateProduct(id, product);
     }
-
     @PostMapping
     public void createProduct(@RequestBody Product product){
         service.createProduct(product);

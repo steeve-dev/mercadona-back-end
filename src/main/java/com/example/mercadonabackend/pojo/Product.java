@@ -1,9 +1,10 @@
 package com.example.mercadonabackend.pojo;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Product {
+public class Product implements Serializable {
     @Id
     @SequenceGenerator(name="product_seq",
             sequenceName = "product_seq",
@@ -28,6 +29,14 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
+
+    public Product(Long id, String name, String description, Float price, Category category) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.category = category;
+    }
 
     public Product(Long id, String name, String description, Float price, Promotion promotion, Category category) {
         this.id = id;

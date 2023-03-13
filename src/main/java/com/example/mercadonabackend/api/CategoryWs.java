@@ -4,6 +4,8 @@ package com.example.mercadonabackend.api;
 import com.example.mercadonabackend.Service.CategoryService;
 import com.example.mercadonabackend.pojo.Category;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,10 +17,14 @@ public class CategoryWs {
     @Autowired
     private CategoryService service;
 
+    @CrossOrigin(origins = "http://localhost:3000", allowedHeaders = "Requestor-Type", exposedHeaders = "X-Get-Header")
     @GetMapping
-    public List<Category> getAllCategory()
+    public ResponseEntity<List<Category>> getAllCategory()
     {
-        return service.getAllCategory();
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("X-Get-Header", "ExampleHeader");
+        return ResponseEntity.ok().headers(headers).body(service.getAllCategory());
     }
 
     @GetMapping("{id}")
