@@ -2,12 +2,9 @@ package com.example.mercadonabackend.pojo;
 
 import javax.persistence.*;
 
-import java.io.Serializable;
-import java.util.LinkedHashSet;
-import java.util.Set;
 
 @Entity
-public class Category implements Serializable {
+public class Category {
     @Id
     @SequenceGenerator(name="category_seq",
             sequenceName = "category_seq",
@@ -19,14 +16,6 @@ public class Category implements Serializable {
     @Column(name = "name")
     private String name;
 
-    public Category(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public Category() {
-
-    }
 
     public String getName() {
         return name;

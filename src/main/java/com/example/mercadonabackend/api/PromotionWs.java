@@ -2,12 +2,13 @@ package com.example.mercadonabackend.api;
 
 import com.example.mercadonabackend.Service.PromotionService;
 import com.example.mercadonabackend.pojo.Promotion;
+import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping(ApiRegistration.REST_PREFIX + ApiRegistration.REST_PROMOTION)
 public class PromotionWs {
 

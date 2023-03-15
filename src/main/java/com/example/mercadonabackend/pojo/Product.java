@@ -2,6 +2,7 @@ package com.example.mercadonabackend.pojo;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collection;
 
 @Entity
 public class Product implements Serializable {

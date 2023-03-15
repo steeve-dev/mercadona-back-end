@@ -2,29 +2,30 @@ package com.example.mercadonabackend.api;
 
 
 import com.example.mercadonabackend.Service.CategoryService;
+import org.springframework.stereotype.Controller;
 import com.example.mercadonabackend.pojo.Category;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Collection;
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping(ApiRegistration.REST_PREFIX + ApiRegistration.REST_CATEGORY)
 public class CategoryWs {
 
     @Autowired
     private CategoryService service;
 
-    @CrossOrigin(origins = "http://localhost:3000", allowedHeaders = "Requestor-Type", exposedHeaders = "X-Get-Header")
     @GetMapping
-    public ResponseEntity<List<Category>> getAllCategory()
+    public ModelAndView getAllCategory()
     {
+        ModelAndView getCategory = new ModelAndView();
+        getCategory.setViewName("index.html");
+        getCategory.addObject("category", service.getAllCategory());
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.set("X-Get-Header", "ExampleHeader");
-        return ResponseEntity.ok().headers(headers).body(service.getAllCategory());
+        return getCategory;
     }
 
     @GetMapping("{id}")

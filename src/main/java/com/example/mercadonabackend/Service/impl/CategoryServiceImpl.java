@@ -7,6 +7,7 @@ import com.example.mercadonabackend.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,37 +20,31 @@ public class CategoryServiceImpl implements CategoryService {
 
 
     @Override
-    public List<Category> getAllCategory() {
+    public List getAllCategory() {
 
         return categoryRepository.findAll();
     }
 
     @Override
     public Category getAllCategoryById(Long id) {
-        if(verifId(id)) {
-            Optional<Category> categoryOptional = categoryRepository.findById(id);
-            return categoryOptional.orElse(null);
-        }
-        else {
-            return null;
-        }
+        return null;
     }
 
     @Override
     public void updateCategory(Long categoryId, Category category) {
-        this.deleteCategory(categoryId);
-        categoryRepository.save(category);
+
     }
 
     @Override
     public void createCategory(Category category) {
-        categoryRepository.save(category);
+
     }
 
     @Override
     public void deleteCategory(Long id) {
-        categoryRepository.deleteById(id);
+
     }
+
 
     private boolean verifId(Long id){
         return id != null; //return True si id != 0 sinon, false
