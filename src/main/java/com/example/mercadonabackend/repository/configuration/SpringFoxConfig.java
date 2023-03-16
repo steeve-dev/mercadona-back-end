@@ -1,4 +1,4 @@
-package com.example.mercadonabackend.pojo.configuration;
+package com.example.mercadonabackend.repository.configuration;
 
 
 import org.springframework.context.annotation.Bean;

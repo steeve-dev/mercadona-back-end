@@ -17,6 +17,7 @@ public class CategoryWs {
     @Autowired
     private CategoryService service;
 
+
     @PostMapping
     public void createCategory(@RequestBody Category category){
 

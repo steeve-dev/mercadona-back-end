@@ -34,6 +34,7 @@ public class HomeController {
     @GetMapping("{id}")
     public ModelAndView getProductByCategory(@PathVariable(name = "id")Long id)
     {
+
         ModelAndView getProducts = new ModelAndView();
         getProducts.setViewName("index.html");
         Category currentCategory = categoryService.getCategoryById(id);

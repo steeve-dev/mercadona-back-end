@@ -15,6 +15,7 @@ public class ProductWs {
     @Autowired
     private ProductService service;
 
+
     @PutMapping("{id}")
     public void updateProduct(@PathVariable(name="id")Long id, @RequestBody Product product){
         service.updateProduct(id, product);
