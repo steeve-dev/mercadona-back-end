@@ -2,17 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link data-th-href="@{/styles/style.css}" rel="stylesheet">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
 <body>
-    voici le body
+<header
+        th:insert="components/title.html">
+</header>
+<main
+        class="home-main">
+    <section
+            class="home-main-blocCategory"
+            th:insert="components/categoryMenu.html"></section>
+    <section
+            class="home-main-productSection"
+            th:insert="components/productCard.html"></section>
+</main>
 
-<tr th:each="categori: ${category}">
-    <td th:text="${categori.name}"></td>
-</tr>
+<footer
+        th:insert="components/footer">
+</footer>
+
 
 </body>
 </html>

@@ -2,14 +2,13 @@ package com.example.mercadonabackend.api;
 
 
 import com.example.mercadonabackend.Service.CategoryService;
+import com.example.mercadonabackend.Service.ProductService;
 import org.springframework.stereotype.Controller;
 import com.example.mercadonabackend.pojo.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.Collection;
-import java.util.List;
 
 @Controller
 @RequestMapping(ApiRegistration.REST_PREFIX + ApiRegistration.REST_CATEGORY)
@@ -18,20 +17,15 @@ public class CategoryWs {
     @Autowired
     private CategoryService service;
 
-    @GetMapping
-    public ModelAndView getAllCategory()
-    {
-        ModelAndView getCategory = new ModelAndView();
-        getCategory.setViewName("index.html");
-        getCategory.addObject("category", service.getAllCategory());
-
-        return getCategory;
-    }
 
     @GetMapping("{id}")
-    public Category getAllCategoryById(@PathVariable(name="id") Long id)
+    public ModelAndView getAllCategoryById(@PathVariable(name="id") Long id)
     {
-        return service.getAllCategoryById(id);
+        ModelAndView getCategoryById = new ModelAndView();
+        getCategoryById.setViewName("index.html");
+        getCategoryById.addObject("categori", service.getCategoryById(id));
+
+        return getCategoryById;
     }
 
     @PostMapping
@@ -50,4 +44,5 @@ public class CategoryWs {
     public void deleteCategory(@PathVariable(name = "id") Long id){
         service.deleteCategory(id);
     }
+
 }

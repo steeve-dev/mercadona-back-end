@@ -17,6 +17,7 @@ public class PromotionWs {
 
     @GetMapping
     public List<Promotion> getAllPromotion(){
+
         return promotionService.getAllPromotion();
     }
 
