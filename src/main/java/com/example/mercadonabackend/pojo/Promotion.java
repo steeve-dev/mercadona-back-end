@@ -19,15 +19,6 @@ public class Promotion implements Serializable {
     @Column(name = "begin_date")
     private Date beginDate;
 
-    public Promotion(Long id, Date beginDate, Date endDate, Integer percentage, Product product) {
-        this.id = id;
-        this.beginDate = beginDate;
-        this.endDate = endDate;
-        this.percentage = percentage;
-        this.product = product;
-    }
-
-
     @Temporal(TemporalType.DATE)
     @Column(name = "end_date")
     private Date endDate;
@@ -39,6 +30,13 @@ public class Promotion implements Serializable {
     @JoinColumn(name = "product_id")
     private Product product;
 
+    public Promotion(Long id, Date beginDate, Date endDate, Integer percentage, Product product) {
+        this.id = id;
+        this.beginDate = beginDate;
+        this.endDate = endDate;
+        this.percentage = percentage;
+        this.product = product;
+    }
     public Promotion() {
 
     }
