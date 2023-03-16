@@ -3,7 +3,9 @@ package com.example.mercadonabackend.Service.impl;
 
 import com.example.mercadonabackend.Service.CategoryService;
 import com.example.mercadonabackend.pojo.Category;
+import com.example.mercadonabackend.pojo.Product;
 import com.example.mercadonabackend.repository.CategoryRepository;
+import com.example.mercadonabackend.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,15 +22,32 @@ public class CategoryServiceImpl implements CategoryService {
 
 
     @Override
-    public List getAllCategory() {
+    public List<Category> getAllCategory() {
 
         return categoryRepository.findAll();
     }
 
     @Override
-    public Category getAllCategoryById(Long id) {
+    public List<Product> getProductOfCategoryId(Long id) {
+
+        Optional<Category> currentCategory = categoryRepository.findById(id);
         return null;
     }
+
+
+    @Override
+    public Category getCategoryById(Long id) {
+        if (verifId(id)){
+            Optional<Category> categoryOptional = categoryRepository.findById(id);
+            return categoryOptional.orElse(null);
+        }
+        else {
+            return null;
+        }
+
+    }
+
+
 
     @Override
     public void updateCategory(Long categoryId, Category category) {

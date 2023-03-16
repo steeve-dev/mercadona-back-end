@@ -15,16 +15,6 @@ public class PromotionWs {
     @Autowired
     private PromotionService promotionService;
 
-    @GetMapping
-    public List<Promotion> getAllPromotion(){
-        return promotionService.getAllPromotion();
-    }
-
-    @GetMapping("{id}")
-    public Promotion getPromotionById(@PathVariable(name = "id") Long id){
-        return promotionService.getPromotionById(id);
-    }
-
     @PostMapping
     public void createPromotion(Promotion promotion){
         promotionService.createPromotion(promotion);

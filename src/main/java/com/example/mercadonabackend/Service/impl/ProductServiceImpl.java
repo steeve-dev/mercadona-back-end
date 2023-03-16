@@ -1,6 +1,7 @@
 package com.example.mercadonabackend.Service.impl;
 
 import com.example.mercadonabackend.Service.ProductService;
+import com.example.mercadonabackend.pojo.Category;
 import com.example.mercadonabackend.pojo.Product;
 import com.example.mercadonabackend.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,11 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> getAllProduct() {
 
         return productRepository.findAll();
+    }
+
+    public List<Product> getProductByCategory(Category category){
+
+        return productRepository.findByCategory(category);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.example.mercadonabackend.Service;
 
 
+import com.example.mercadonabackend.pojo.Category;
 import com.example.mercadonabackend.pojo.Product;
 
 import java.util.List;
@@ -8,6 +9,8 @@ import java.util.List;
 public interface ProductService {
 
     List<Product> getAllProduct();
+
+    List<Product> getProductByCategory(Category category);
 
     Product getProductById(Long id);
 

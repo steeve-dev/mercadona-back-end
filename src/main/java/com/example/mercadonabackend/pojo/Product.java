@@ -25,7 +25,7 @@ public class Product implements Serializable {
 
     @OneToOne
     @JoinColumn(name = "promotion_id")
-    private Promotion promotion;
+    private Promotion promotion = null;
 
     @ManyToOne
     @JoinColumn(name = "category_id")

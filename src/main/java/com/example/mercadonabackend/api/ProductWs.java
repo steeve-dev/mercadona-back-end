@@ -5,6 +5,7 @@ import com.example.mercadonabackend.pojo.Product;
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -13,16 +14,6 @@ import java.util.List;
 public class ProductWs {
     @Autowired
     private ProductService service;
-
-    @GetMapping()
-    public List<Product> getAllProduct(){
-        return service.getAllProduct();
-    }
-
-    @GetMapping("{id}")
-    public Product getProductById(@PathVariable(name="id")Long id){
-        return service.getProductById(id);
-    }
 
     @PutMapping("{id}")
     public void updateProduct(@PathVariable(name="id")Long id, @RequestBody Product product){
