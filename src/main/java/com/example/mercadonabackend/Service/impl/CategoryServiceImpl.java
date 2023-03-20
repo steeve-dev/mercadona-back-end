@@ -47,8 +47,6 @@ public class CategoryServiceImpl implements CategoryService {
 
     }
 
-
-
     @Override
     public void updateCategory(Long categoryId, Category category) {
 
@@ -56,12 +54,12 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public void createCategory(Category category) {
-
+        categoryRepository.save(category);
     }
 
     @Override
     public void deleteCategory(Long id) {
-
+        categoryRepository.deleteById(id);
     }
 
 

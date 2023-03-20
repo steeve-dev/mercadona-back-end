@@ -1,3 +1,25 @@
 <div>
-    ceci est la page de gestion des catégories
+    <form
+            action="#"
+            th:action="@{/api/category/post}"
+            th:objet="${newCategory}"
+            method="post">
+
+        <label for="name">Ajouter une catégorie :</label>
+        <input
+                type="text"
+                name="" id="name"
+                placeholder="name"
+                th:field="${newCategory.name}">
+        <button type="submit">Créer</button>
+    </form>
+
+    <ul>
+        <li th:each="category:${categoryList}">
+            <p th:text="${category.name}">category</p>
+            <a th:href="@{/api/category/delete/{id}(id=${category.id})}">Supprimer</a>
+        </li>
+
+    </ul>
+
 </div>
