@@ -41,10 +41,12 @@ public class AdminController {
 
     @GetMapping("/product/add")
     public ModelAndView newProduct() {
-        ModelAndView getnewProductPage = new ModelAndView();
-        getnewProductPage.setViewName("pages/adminNewProduct.html");
+        ModelAndView getNewProductPage = new ModelAndView();
+        getNewProductPage.setViewName("pages/adminNewProduct.html");
+        getNewProductPage.addObject("categoryList", categoryService.getAllCategory());
 
-        return getnewProductPage;
+
+        return getNewProductPage;
     }
 
     @GetMapping("/product")

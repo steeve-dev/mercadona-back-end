@@ -1,3 +1,26 @@
 <div>
-    ceci est la page de nouveaux produits
+    <form action="">
+        <label for="name">Nom</label>
+        <input type="text" id="name">
+
+        <label for="description">Description</label>
+        <input type="text" id="description">
+
+        <label for="price">Prix</label>
+        <input type="number" id="price">
+
+        <label for="category">Catégorie</label>
+        <select name="category" id="category">
+            <option
+                    th:each="category:${categoryList}"
+                    th:value="${category.name}"
+                    th:text="${category.name}">
+            </option>
+        </select>
+
+        <input type="submit" value="Enregistrer">
+        
+        
+        
+    </form>
 </div>
