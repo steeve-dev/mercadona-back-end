@@ -1,3 +1,12 @@
 <div>
-    ceci est la page de gestion de produits
+
+    <div th:each="product:${products}">
+        <p th:text="${product.name}"></p>
+        <p th:text="${product.price}"></p>
+        <p th:text="${product.description}"></p>
+        <p th:text="${product.category.name}"></p>
+        <a data-th-href="@{product/update/{id}(id=${product.id})}">Modifier le produit</a>
+        <a th:href="@{/api/product/delete/{id}(id=${product.id})}">Supprimer le produit</a>
+        <a href="">Ajouter une promotion</a>
+    </div>
 </div>

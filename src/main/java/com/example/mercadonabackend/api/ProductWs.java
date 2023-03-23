@@ -15,18 +15,21 @@ public class ProductWs {
     @Autowired
     private ProductService service;
 
-
-    @PutMapping("{id}")
-    public void updateProduct(@PathVariable(name="id")Long id, @RequestBody Product product){
+    @PostMapping("/put/{id}")
+    public String updateProduct(@PathVariable(name="id")Long id, Product product){
         service.updateProduct(id, product);
-    }
-    @PostMapping
-    public void createProduct(@RequestBody Product product){
-        service.createProduct(product);
+        return "redirect:/admin/";
     }
 
-    @DeleteMapping("{id}")
-    public void deleteProduct(@PathVariable(name = "id")Long id){
+    @PostMapping("/post")
+    public String createProduct(Product product){
+        service.createProduct(product);
+        return "redirect:/admin/product/add";
+    }
+
+    @GetMapping("delete/{id}")
+    public String deleteProduct(@PathVariable(name = "id")Long id){
         service.deleteProduct(id);
+        return "redirect:/admin/product";
     }
 }

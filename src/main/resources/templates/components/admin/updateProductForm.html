@@ -1,6 +1,9 @@
+
+
 <div>
+
     <form action="#"
-          th:action="@{/api/product/post}"
+          th:action="@{/api/product/put/{id}(id=${product.id})}"
           th:object="${product}"
           method="post"
     >
@@ -10,19 +13,22 @@
         <input type="text"
                id="name"
                placeholder="nom"
-               th:field="*{name}">
+               th:field="*{name}"
+               th:value="${product.name}">
 
         <label for="description">Description</label>
         <input type="text"
                id="description"
                placeholder="description"
-               th:field="*{description}">
+               th:field="*{description}"
+               th:value="${product.description}">
 
         <label for="price">Prix</label>
         <input type="text"
                id="price"
                placeholder="prix"
-               th:field="*{price}">
+               th:field="*{price}"
+               th:value="${product.price}">
 
         <label for="category">Catégorie</label>
         <select name="category"
@@ -36,4 +42,5 @@
         </select>
         <input type="submit" value="Enregistrer">
     </form>
+
 </div>

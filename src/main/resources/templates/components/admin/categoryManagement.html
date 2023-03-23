@@ -2,15 +2,16 @@
     <form
             action="#"
             th:action="@{/api/category/post}"
-            th:objet="${newCategory}"
+            th:object="${newCategory}"
             method="post">
 
         <label for="name">Ajouter une catégorie :</label>
         <input
                 type="text"
-                name="" id="name"
-                placeholder="name"
-                th:field="${newCategory.name}">
+                name=""
+                id="name"
+                placeholder="nom"
+                th:field="*{name}">
         <button type="submit">Créer</button>
     </form>
 
