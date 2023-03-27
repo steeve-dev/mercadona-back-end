@@ -1,0 +1,33 @@
+<div>
+    <form action="#"
+          th:action="@{/api/promotion/post/{id}(id = ${product.id})}"
+          th:object="${promotion}"
+          method="post">
+
+        <input type="hidden" th:field="*{id}" >
+
+        <label for="percentage">Pourcentage de remise</label>
+        <input
+                type="number"
+                name="percentage"
+                id="percentage"
+                th:field="*{percentage}">
+        <label for="beginDate">Date de début</label>
+        <input
+                type="date"
+                name="dateEnd"
+                id="beginDate">
+
+        <label for="endDate">Date de fin</label>
+        <input
+                type="date"
+                name="dateBegin"
+                id="endDate">
+
+
+
+        <input
+                type="submit"
+                value="Enregistrer">
+    </form>
+</div>
