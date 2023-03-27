@@ -1,9 +1,14 @@
 package com.example.mercadonabackend.pojo;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 
 @Entity
 public class Promotion implements Serializable {
@@ -15,13 +20,11 @@ public class Promotion implements Serializable {
     @Column(name = "promotion_id", updatable = false)
     private Long id;
 
-    @Temporal(TemporalType.DATE)
     @Column(name = "begin_date")
-    private Date beginDate;
+    private LocalDate beginDate;
 
-    @Temporal(TemporalType.DATE)
     @Column(name = "end_date")
-    private Date endDate;
+    private LocalDate endDate;
 
     @Column(name = "percentage")
     private Integer percentage;
@@ -30,7 +33,7 @@ public class Promotion implements Serializable {
     @JoinColumn(name = "product_id")
     private Product product;
 
-    public Promotion(Long id, Date beginDate, Date endDate, Integer percentage, Product product) {
+    public Promotion(Long id, LocalDate beginDate, LocalDate endDate, Integer percentage, Product product) {
         this.id = id;
         this.beginDate = beginDate;
         this.endDate = endDate;
@@ -57,19 +60,20 @@ public class Promotion implements Serializable {
         this.percentage = percentage;
     }
 
-    public Date getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDate endDate) {
+
         this.endDate = endDate;
     }
 
-    public Date getBeginDate() {
+    public LocalDate getBeginDate() {
         return beginDate;
     }
 
-    public void setBeginDate(Date beginDate) {
+    public void setBeginDate(LocalDate beginDate) {
         this.beginDate = beginDate;
     }
 

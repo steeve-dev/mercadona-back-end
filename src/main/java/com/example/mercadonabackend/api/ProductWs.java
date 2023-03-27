@@ -18,7 +18,7 @@ public class ProductWs {
     @PostMapping("/put/{id}")
     public String updateProduct(@PathVariable(name="id")Long id, Product product){
         service.updateProduct(id, product);
-        return "redirect:/admin/";
+        return "redirect:/admin/product";
     }
 
     @PostMapping("/post")
