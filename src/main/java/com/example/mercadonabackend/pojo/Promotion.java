@@ -1,13 +1,9 @@
 package com.example.mercadonabackend.pojo;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
-import javax.persistence.*;
-
+import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 
 @Entity

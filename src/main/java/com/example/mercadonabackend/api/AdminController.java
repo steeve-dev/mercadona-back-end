@@ -19,7 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.Date;
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/admin/")
 public class AdminController {
 
     @Autowired
@@ -32,7 +32,6 @@ public class AdminController {
     public ModelAndView getAdminData() {
         ModelAndView getAdminPage = new ModelAndView();
         getAdminPage.setViewName("pages/admin.html");
-
 
         return getAdminPage;
     }
