@@ -22,10 +22,10 @@ public class SecurityConfiguration {
                 .csrf()
                 .disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/", "/{id}", "/styles/**", "/admin/*")
+                .requestMatchers("/", "/{id}", "/styles/**")
                 .permitAll()
-                .anyRequest().authenticated()
-                .and().formLogin().loginPage("/auth").defaultSuccessUrl("/admin");
+                .and()
+                .formLogin().loginPage("/auth").defaultSuccessUrl("/admin");
         return http.build();
 
     }

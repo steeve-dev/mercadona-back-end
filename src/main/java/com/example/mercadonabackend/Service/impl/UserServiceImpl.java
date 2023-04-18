@@ -1,16 +1,16 @@
 package com.example.mercadonabackend.Service.impl;
 
 import com.example.mercadonabackend.Service.UserService;
+import com.example.mercadonabackend.pojo.UserEntity;
 import com.example.mercadonabackend.repository.UserRepository;
-import com.example.mercadonabackend.security.User;
 
 public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
 
     @Override
-    public void createUser(User user) {
-        userRepository.save(user);
+    public void createUser(UserEntity user) {
+
     }
 
     @Override
@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateUser(Long userId, User user) {
+    public void updateUser(Long userId, UserEntity user) {
 
     }
 }

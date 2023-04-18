@@ -1,15 +1,15 @@
 package com.example.mercadonabackend.Service;
 
 
-import com.example.mercadonabackend.security.User;
+import com.example.mercadonabackend.pojo.UserEntity;
 
 public interface UserService {
 
-    void createUser(User user);
+    void createUser(UserEntity user);
 
     void deleteUser(Long id);
 
-    void updateUser(Long userId, User user);
+    void updateUser(Long userId, UserEntity user);
 
 
 

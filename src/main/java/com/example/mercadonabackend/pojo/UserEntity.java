@@ -1,5 +1,6 @@
-package com.example.mercadonabackend.security;
+package com.example.mercadonabackend.pojo;
 
+import com.example.mercadonabackend.security.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,7 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "user", schema = "public")
-public class User implements UserDetails {
+public class UserEntity implements UserDetails {
 
     @Id
     @SequenceGenerator(name="user_seq",
