@@ -5,10 +5,10 @@
 </head>
 <body>
 <h1>Login page</h1>
-<p th:if="${loginError}" class="error">Wrong user or password</p>
 <form
+        th:object="${user}"
         role="form"
-        th:action="@{/login}"
+        th:action="@{/register/save}"
         method="post">
     <label
             for="username">Username</label>:
@@ -16,16 +16,26 @@
             type="text"
             id="username"
             name="username"
+            th:field="*{username}"
+            autofocus="autofocus" /> <br />
+    <label
+            for="email">email</label>:
+    <input
+            type="text"
+            id="email"
+            name="email"
+            th:field="*{email}"
             autofocus="autofocus" /> <br />
     <label
             for="password">Password</label>:
     <input
+            th:field="*{password}"
             type="password"
             id="password"
             name="password" /> <br />
     <input
             type="submit"
-            value="Log in" />
+            value="Register" />
 </form>
 </body>
 </html>

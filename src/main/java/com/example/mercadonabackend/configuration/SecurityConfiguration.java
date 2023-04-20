@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -22,12 +23,20 @@ public class SecurityConfiguration {
                 .csrf()
                 .disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/", "/{id}", "/styles/**")
+                .requestMatchers("/", "/{id}", "/styles/**", "/admin/**", "/register", "/register/save")
                 .permitAll()
                 .and()
-                .formLogin().loginPage("/auth").defaultSuccessUrl("/admin");
+                .formLogin(form -> form
+                        .loginPage("/auth")
+                        .defaultSuccessUrl("/admin")
+                        .loginProcessingUrl("/login")
+                        .failureUrl("/login?error=true")
+                        .permitAll()
+                ).logout(
+                        logout -> logout
+                                .logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll()
+                );
         return http.build();
-
     }
 
     @Bean

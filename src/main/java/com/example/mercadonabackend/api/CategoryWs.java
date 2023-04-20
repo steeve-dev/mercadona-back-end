@@ -14,8 +14,6 @@ public class CategoryWs {
     @Autowired
     private CategoryService service;
 
-
-
     @PutMapping("{id}")
     public void updateCategory(@PathVariable(name = "id") Long id,
                                Category category){

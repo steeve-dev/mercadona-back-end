@@ -30,11 +30,6 @@ public class AdminController {
         return getAdminPage;
     }
 
-    @GetMapping("/login")
-    public String loginPage() {
-        return "login";
-    }
-
     @GetMapping("/category")
     public ModelAndView categoryManagement() {
         ModelAndView getCategoryPage = new ModelAndView();
@@ -53,7 +48,6 @@ public class AdminController {
         Product product = new Product();
         getNewProductPage.addObject("categoryList", categoryService.getAllCategory());
         getNewProductPage.addObject("product", product);
-
 
         return getNewProductPage;
     }
