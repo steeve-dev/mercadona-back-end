@@ -1,8 +1,4 @@
 spring:
-  security:
-    user:
-      name: test
-      password: test
   mvc:
     path match:
       matching-strategy: ant_path_matcher

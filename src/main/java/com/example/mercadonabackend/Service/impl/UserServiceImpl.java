@@ -5,6 +5,7 @@ import com.example.mercadonabackend.dto.RegistrationDto;
 import com.example.mercadonabackend.pojo.Role;
 import com.example.mercadonabackend.pojo.UserEntity;
 import com.example.mercadonabackend.repository.UserRepository;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -12,12 +13,19 @@ public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
 
+    private PasswordEncoder passwordEncoder;
+
+    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
+
     @Override
     public void createUser(RegistrationDto registrationDto) {
         UserEntity user = new UserEntity();
         user.setUsername(registrationDto.getUsername());
         user.setEmail(registrationDto.getEmail());
-        user.setPassword(registrationDto.getPassword());
+        user.setPassword(passwordEncoder.encode(registrationDto.getPassword()));
         user.setRole(Role.ADMIN);
         userRepository.save(user);
     }

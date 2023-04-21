@@ -1,27 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Login page</title>
+    <meta charset="UTF-8">
+    <link data-th-href="@{/styles/style.css}" rel="stylesheet">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login Page</title>
 </head>
 <body>
 <h1>Login page</h1>
 <p th:if="${loginError}" class="error">Wrong user or password</p>
 <form
+        method="post"
         role="form"
         th:action="@{/login}"
-        method="post">
+        >
     <label
             for="username">Username</label>:
     <input
-            type="text"
             id="username"
+            type="text"
             name="username"
             autofocus="autofocus" /> <br />
     <label
             for="password">Password</label>:
     <input
-            type="password"
             id="password"
+            type="password"
             name="password" /> <br />
     <input
             type="submit"

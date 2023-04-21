@@ -1,8 +1,9 @@
-package com.example.mercadonabackend.configuration;
+package com.example.mercadonabackend.security;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -15,6 +16,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @RequiredArgsConstructor
 public class SecurityConfiguration {
 
+    private CustomUserDetailsService userDetailsService;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -23,14 +25,14 @@ public class SecurityConfiguration {
                 .csrf()
                 .disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/", "/{id}", "/styles/**", "/admin/**", "/register", "/register/save")
+                .requestMatchers("admin/**", "api/**").authenticated()
+                .requestMatchers("/", "/{id}", "/styles/**", "/register", "/register/save")
                 .permitAll()
                 .and()
                 .formLogin(form -> form
-                        .loginPage("/auth")
+                        .loginPage("/login")
                         .defaultSuccessUrl("/admin")
                         .loginProcessingUrl("/login")
-                        .failureUrl("/login?error=true")
                         .permitAll()
                 ).logout(
                         logout -> logout
@@ -45,5 +47,8 @@ public class SecurityConfiguration {
         return new BCryptPasswordEncoder();
     }
 
+    public void configure(AuthenticationManagerBuilder builder) throws Exception {
+        builder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+    }
 
 }
