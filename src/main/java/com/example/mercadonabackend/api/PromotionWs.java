@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping(ApiRegistration.REST_PREFIX + ApiRegistration.REST_PROMOTION)

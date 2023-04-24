@@ -3,6 +3,7 @@ package com.example.mercadonabackend.Service.impl;
 import com.example.mercadonabackend.Service.PromotionService;
 import com.example.mercadonabackend.pojo.Product;
 import com.example.mercadonabackend.pojo.Promotion;
+import com.example.mercadonabackend.repository.ProductRepository;
 import com.example.mercadonabackend.repository.PromotionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,9 @@ import java.util.Optional;
 
 @Service
 public class PromotionServiceImpl implements PromotionService {
+
+    @Autowired
+    private ProductRepository productRepository;
 
     @Autowired
     private PromotionRepository promotionRepository;
@@ -47,6 +51,9 @@ public class PromotionServiceImpl implements PromotionService {
         promotion.setBeginDate(beginDateParse);
 
         promotionRepository.save(promotion);
+        product.setPromotion(promotion);
+        productRepository.save(product);
+
     }
 
     @Override

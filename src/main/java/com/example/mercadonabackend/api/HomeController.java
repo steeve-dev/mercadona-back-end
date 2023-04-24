@@ -4,6 +4,8 @@ package com.example.mercadonabackend.api;
 import com.example.mercadonabackend.Service.CategoryService;
 import com.example.mercadonabackend.Service.ProductService;
 import com.example.mercadonabackend.pojo.Category;
+import com.example.mercadonabackend.pojo.Product;
+import com.example.mercadonabackend.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,6 +45,15 @@ public class HomeController {
         return getProducts;
     }
 
+    @GetMapping("/promotion")
+    public ModelAndView getProductWithPromotion(){
+        ModelAndView getProducts = new ModelAndView();
+        getProducts.setViewName("pages/homePromotion.html");
+        getProducts.addObject("categoryList", categoryService.getAllCategory());
+        getProducts.addObject("products", productService.getAllProduct());
+
+        return getProducts;
+    }
     public HomeController(ProductService productService) {
         this.productService = productService;
     }
