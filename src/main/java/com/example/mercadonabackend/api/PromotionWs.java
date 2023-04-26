@@ -29,9 +29,10 @@ public class PromotionWs {
         promotionService.updatePromotion(id, promotion);
     }
 
-    @DeleteMapping("{id}")
-    public void deletePromotion(@PathVariable(name = "id")Long id){
+    @GetMapping("/delete/{id}")
+    public String deletePromotion(@PathVariable(name = "id")Long id){
         promotionService.deletePromotion(id);
+        return "redirect:/admin/product";
     }
 
 }

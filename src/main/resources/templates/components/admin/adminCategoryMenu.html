@@ -1,0 +1,26 @@
+<h2 class="home-main-blocCategory__h2">Catégories</h2>
+<ul
+        class="home-main-category__ul">
+    <li class="home-main-categoryList">
+        <a
+                class="home-main-categoryList__a"
+                data-th-href="@{/admin/product}">Catalogue complet</a>
+    </li>
+    <li class="home-main-categoryList">
+        <a
+                class="home-main-categoryList__a"
+                data-th-href="@{/admin/product/promotion}">
+            Promotions
+        </a>
+
+    </li>
+    <li
+            class="home-main-categoryList"
+            th:each="category:${categoryList}">
+        <a
+                class="home-main-categoryList__a"
+                data-th-href="@{/admin/product/{id} (id = ${category.id})}"
+                th:text="${category.name}">
+        </a>
+    </li>
+</ul>

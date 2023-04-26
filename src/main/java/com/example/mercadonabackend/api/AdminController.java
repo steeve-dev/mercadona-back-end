@@ -25,7 +25,7 @@ public class AdminController {
     @GetMapping
     public ModelAndView getAdminData() {
         ModelAndView getAdminPage = new ModelAndView();
-        getAdminPage.setViewName("pages/admin.html");
+        getAdminPage.setViewName("admin.html");
 
         return getAdminPage;
     }
@@ -33,7 +33,7 @@ public class AdminController {
     @GetMapping("/category")
     public ModelAndView categoryManagement() {
         ModelAndView getCategoryPage = new ModelAndView();
-        getCategoryPage.setViewName("pages/adminCategory.html");
+        getCategoryPage.setViewName("adminCategory.html");
         Category category1 = new Category();
         getCategoryPage.addObject("newCategory", category1);
         getCategoryPage.addObject("categoryList", categoryService.getAllCategory());
@@ -44,7 +44,7 @@ public class AdminController {
     @GetMapping("/product/add")
     public ModelAndView newProduct() {
         ModelAndView getNewProductPage = new ModelAndView();
-        getNewProductPage.setViewName("pages/adminNewProduct.html");
+        getNewProductPage.setViewName("adminNewProduct.html");
         Product product = new Product();
         getNewProductPage.addObject("categoryList", categoryService.getAllCategory());
         getNewProductPage.addObject("product", product);
@@ -55,17 +55,39 @@ public class AdminController {
     @GetMapping("/product")
     public ModelAndView productManagement() {
         ModelAndView getProductPage = new ModelAndView();
-        getProductPage.setViewName("pages/adminProduct.html");
+        getProductPage.setViewName("adminProduct.html");
         getProductPage.addObject("products", productService.getAllProduct());
+        getProductPage.addObject("categoryList", categoryService.getAllCategory());
+        return getProductPage;
+    }
+
+    @GetMapping("/product/{id}")
+    public ModelAndView productManagementByCategory(@PathVariable(name = "id")Long id) {
+        ModelAndView getProductPage = new ModelAndView();
+        getProductPage.setViewName("adminProduct.html");
+        Category currentCategory = categoryService.getCategoryById(id);
+        getProductPage.addObject("categoryList", categoryService.getAllCategory());
+        getProductPage.addObject("products", productService.getProductByCategory(currentCategory));
 
         return getProductPage;
     }
+
+    @GetMapping("/product/promotion")
+    public ModelAndView productManagementByPromotion() {
+        ModelAndView getProductPage = new ModelAndView();
+        getProductPage.setViewName("adminProductByPromotion.html");
+        getProductPage.addObject("products", productService.getAllProduct());
+        getProductPage.addObject("categoryList", categoryService.getAllCategory());
+        return getProductPage;
+    }
+
+
 
     @GetMapping("/product/update/{id}")
     public ModelAndView productUpdate(@PathVariable(name = "id")Long id){
 
         ModelAndView getUpdateFormProduct = new ModelAndView();
-        getUpdateFormProduct.setViewName("pages/adminUpdateProduct.html");
+        getUpdateFormProduct.setViewName("adminUpdateProduct.html");
         Product currentProduct = productService.getProductById(id);
         getUpdateFormProduct.addObject("categoryList", categoryService.getAllCategory());
         getUpdateFormProduct.addObject("product", currentProduct);
@@ -76,7 +98,7 @@ public class AdminController {
     @GetMapping("/add/promotion/{id}")
     public ModelAndView createPromotion(@PathVariable(name = "id")Long id){
         ModelAndView getPromtionPage = new ModelAndView();
-        getPromtionPage.setViewName("pages/adminAddPromotion.html");
+        getPromtionPage.setViewName("adminAddPromotion.html");
         Promotion promotion = new Promotion();
         getPromtionPage.addObject("promotion", promotion);
         getPromtionPage.addObject("product", productService.getProductById(id));

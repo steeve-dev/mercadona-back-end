@@ -7,6 +7,8 @@
         <p th:text="${product.category.name}"></p>
         <a data-th-href="@{/admin/product/update/{id}(id=${product.id})}">Modifier le produit</a>
         <a th:href="@{/api/product/delete/{id}(id=${product.id})}">Supprimer le produit</a>
-        <a data-th-href="@{/admin/add/promotion/{id}(id = ${product.id})}">Ajouter une promotion</a>
+        <a th:unless="${product.promotion}" data-th-href="@{/admin/add/promotion/{id}(id = ${product.id})}">Ajouter une promotion</a>
+        <a
+                th:if="${product.promotion}" data-th-href="@{/api/promotion/delete/{id}(id = ${product.id})}">Supprimer la promotion</a>
     </div>
 </div>

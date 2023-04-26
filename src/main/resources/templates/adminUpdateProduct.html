@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -11,7 +12,7 @@
 <body>
 
 <header
-        th:insert="components/general/title.html">
+        th:insert="components/general/header.html">
 </header>
 <main
         th:insert="components/admin/updateProductForm.html">

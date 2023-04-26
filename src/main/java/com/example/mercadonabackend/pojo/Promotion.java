@@ -25,7 +25,7 @@ public class Promotion implements Serializable {
     @Column(name = "percentage")
     private Integer percentage;
 
-    @OneToOne(cascade = CascadeType.PERSIST, orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.PERSIST, orphanRemoval = false)
     @JoinColumn(name = "product_id")
     private Product product;
 

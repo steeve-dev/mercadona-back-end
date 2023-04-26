@@ -1,5 +1,6 @@
 package com.example.mercadonabackend.Service.impl;
 
+import com.example.mercadonabackend.Service.ProductService;
 import com.example.mercadonabackend.Service.PromotionService;
 import com.example.mercadonabackend.pojo.Product;
 import com.example.mercadonabackend.pojo.Promotion;
@@ -18,6 +19,9 @@ public class PromotionServiceImpl implements PromotionService {
 
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    private ProductService productService;
 
     @Autowired
     private PromotionRepository promotionRepository;
@@ -64,7 +68,11 @@ public class PromotionServiceImpl implements PromotionService {
 
     @Override
     public void deletePromotion(Long id) {
-        promotionRepository.deleteById(id);
+        Product product = productService.getProductById(id);
+        Promotion promotion = product.getPromotion();
+        product.setPromotion(null);
+        promotionRepository.deleteById(promotion.getId());
+        productRepository.save(product);
     }
 
     private boolean verifId(Long id){

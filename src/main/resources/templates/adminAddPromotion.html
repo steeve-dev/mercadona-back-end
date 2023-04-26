@@ -1,5 +1,7 @@
 <!doctype html>
-<html lang="en">
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <link data-th-href="@{/styles/style.css}" rel="stylesheet">
@@ -10,10 +12,10 @@
 </head>
 <body>
 <header
-        th:insert="components/general/title.html">
+        th:insert="components/general/header.html">
 </header>
 <main
-        th:insert="components/admin/adminMenu.html">
+        th:insert="components/admin/promotionForm.html">
 </main>
 <footer
         th:insert="components/general/footer">

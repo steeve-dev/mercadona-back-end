@@ -1,0 +1,30 @@
+<div
+        class="logo-header-div">
+    <a
+            data-th-href="@{/}">
+        <img
+                class="logo-header-img"
+                th:src="@{../../../../images/logoHeader.png}"
+                alt="logo mercadona">
+    </a>
+</div>
+
+<nav
+        sec:authorize="isAuthenticated()"
+        class="header-admin-nav">
+    <a
+            class="header-admin-a"
+            data-th-href="@{/}">
+        Accueil
+    </a>
+    <a
+            class="header-admin-a"
+            data-th-href="@{/admin/}">
+        Espace Administrateur
+    </a>
+    <a
+            class="header-admin-a"
+            th:href="@{/logout}">
+        Deconnexion
+    </a>
+</nav>

@@ -12,10 +12,13 @@
 </head>
 <body>
 <header
-        th:insert="components/general/title.html">
+        th:insert="components/general/header.html">
 </header>
-<main
-        th:insert="components/admin/productManagement.html">
+<main>
+    <section th:insert="components/admin/adminCategoryMenu.html">
+    </section>
+    <section th:insert="components/admin/getProductByPromotion.html">
+    </section>
 </main>
 <footer
         th:insert="components/general/footer">

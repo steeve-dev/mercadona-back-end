@@ -25,13 +25,13 @@ public class SecurityConfiguration {
                 .csrf()
                 .disable()
                 .authorizeHttpRequests()
-                .requestMatchers("admin/**", "api/**").authenticated()
-                .requestMatchers("/", "/{id}", "/promotion", "/styles/**", "/register", "/register/save")
+                .requestMatchers("/admin/**", "api/**").authenticated()
+                .requestMatchers("/", "/{id}", "/test", "/promotion", "/images/**", "/styles/**", "/register", "/register/save")
                 .permitAll()
                 .and()
                 .formLogin(form -> form
                         .loginPage("/login")
-                        .defaultSuccessUrl("/admin")
+                        .defaultSuccessUrl("/admin/")
                         .loginProcessingUrl("/login")
                         .permitAll()
                 ).logout(

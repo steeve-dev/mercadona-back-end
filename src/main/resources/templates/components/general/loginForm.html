@@ -1,0 +1,26 @@
+<a data-th-href="@{/}">Retourner à la page d'accueil</a>
+
+<h1>Login page</h1>
+<p th:if="${loginError}" class="error">Wrong user or password</p>
+<form
+        method="post"
+        role="form"
+        th:action="@{/login}"
+>
+    <label
+            for="username">Username</label>:
+    <input
+            id="username"
+            type="text"
+            name="username"
+            autofocus="autofocus" /> <br />
+    <label
+            for="password">Password</label>:
+    <input
+            id="password"
+            type="password"
+            name="password" /> <br />
+    <input
+            type="submit"
+            value="Log in" />
+</form>
