@@ -1,10 +1,12 @@
-<div>
-
-    <div th:each="product:${products}">
-        <p th:text="${product.name}"></p>
-        <p th:text="${product.price}"></p>
-        <p th:text="${product.description}"></p>
-        <p th:text="${product.category.name}"></p>
+<div
+        class="productManagement-main-productCard"
+        th:each="product:${products}">
+    <p th:text="${product.name}"></p>
+    <p th:text="${product.price}"></p>
+    <p th:text="${product.description}"></p>
+    <p th:text="${product.category.name}"></p>
+    <div
+            class="main-productManagement-links">
         <a data-th-href="@{/admin/product/update/{id}(id=${product.id})}">Modifier le produit</a>
         <a th:href="@{/api/product/delete/{id}(id=${product.id})}">Supprimer le produit</a>
         <a th:unless="${product.promotion}" data-th-href="@{/admin/add/promotion/{id}(id = ${product.id})}">Ajouter une promotion</a>

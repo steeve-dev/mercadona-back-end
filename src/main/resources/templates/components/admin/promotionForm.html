@@ -1,31 +1,45 @@
-<div>
-    <form action="#"
+<form
+        class="promotion-form"
+        action="#"
           th:action="@{/api/promotion/post/{id}(id = ${product.id})}"
           th:object="${promotion}"
           method="post">
 
+        <h2
+                class="promotion-form-title">Ajouter une promotion
+        </h2>
         <input type="hidden" th:field="*{id}" >
 
-        <label for="percentage">Pourcentage de remise</label>
+        <label
+                class="promotion-form-label"
+                for="percentage">Pourcentage de remise
+        </label>
         <input
+                class="promotion-form-input"
                 type="number"
                 name="percentage"
                 id="percentage"
                 th:field="*{percentage}">
-        <label for="beginDate">Date de début</label>
+        <label
+                class="promotion-form-label"
+                for="beginDate">Date de début</label>
         <input
+                class="promotion-form-input"
                 type="date"
                 name="dateEnd"
                 id="beginDate">
 
-        <label for="endDate">Date de fin</label>
+        <label
+                class="promotion-form-label"
+                for="endDate">Date de fin</label>
         <input
+                class="promotion-form-input"
                 type="date"
                 name="dateBegin"
                 id="endDate">
 
         <input
+                class="promotion-form-submit"
                 type="submit"
                 value="Enregistrer">
     </form>
-</div>

@@ -1,10 +1,9 @@
 <div
         class="home-main-productCard"
-        th:each="product:${products}">
-    <div th:if="${product.promotion}">
-        <h3 th:text="${product.name}">nom du produit</h3>
-        <p th:text="${product.price}">XX€</p>
-        <p th:text="${product.description}">descritpion du produit</p>
-    </div>
+        th:each="product:${products}"
+        th:if="${product.promotion}">
+    <h3 th:text="${product.name}">nom du produit</h3>
+    <p th:text="${product.price}">XX€</p>
+    <p th:text="${product.description}">descritpion du produit</p>
 
 </div>

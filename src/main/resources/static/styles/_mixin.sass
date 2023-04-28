@@ -1,0 +1,69 @@
+/* Mixins */
+
+/* Home Page */
+
+@mixin blocCategory
+  background-color: antiquewhite
+  width: 30vw
+  align-self: flex-start
+  @media screen and (min-width: 500px) and (max-width: 620px)
+    width: 30vw
+  @media screen and (min-width: 621px) and (max-width: 850px)
+    width: 25vw
+  @media screen and (min-width: 851px) and (max-width: 1024px)
+    width: 20vw
+  @media screen and (min-width: 1025px) and (max-width: 1500px)
+    width: 15vw
+  @media screen and (min-width: 1501px)
+    width: 13vw
+
+@mixin productSection
+  background-color: burlywood
+  min-height: 75vh
+  display: flex
+  width: 60vw
+  flex-wrap: wrap
+  @media screen and (min-width: 500px) and (max-width: 620px)
+    width: 60vw
+  @media screen and (min-width: 621px) and (max-width: 850px)
+    width: 65vw
+  @media screen and (min-width: 851px) and (max-width: 1024px)
+    width: 70vw
+  @media screen and (min-width: 1025px) and (max-width: 1500px)
+    width: 75vw
+  @media screen and (min-width: 1501px)
+    width: 80vw
+
+@mixin productCard
+  width: 85%
+  margin: auto
+  background-color: darkcyan
+  margin-bottom: 10px
+  margin-top: 10px
+  border-radius: 5px
+  align-self: flex-start
+  @media screen and (min-width: 621px) and (max-width: 850px)
+    width: 40%
+  @media screen and (min-width: 851px) and (max-width: 1024px)
+    width: 30%
+  @media screen and (min-width: 1025px) and (max-width: 1500px)
+    width: 22%
+  @media screen and (min-width: 1501px)
+    width: 18%
+
+/* login and product form */
+
+@mixin form
+  background-color: $color-mercadona
+  display: flex
+  flex-direction: column
+  align-items: center
+  padding-bottom: 5vh
+  margin: auto
+  border-radius: 8px
+  @media screen and (min-width: 400px) and (max-width: 699px)
+    width: 75%
+  @media screen and (min-width: 700px) and (max-width: 1024px)
+    width: 50%
+  @media screen and (min-width: 1025px)
+    width: 30%

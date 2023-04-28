@@ -1,26 +1,38 @@
-<a data-th-href="@{/}">Retourner à la page d'accueil</a>
+<a
+        class="login-main-buttonBack"
+        data-th-href="@{/}">Retourner à la page d'accueil
+</a>
 
-<h1>Login page</h1>
 <p th:if="${loginError}" class="error">Wrong user or password</p>
 <form
         method="post"
         role="form"
         th:action="@{/login}"
+        class="login-main-form"
 >
+    <h2
+            class="login-main-title">Se connecter
+    </h2>
+
     <label
-            for="username">Username</label>:
+            class="loginForm-main-label"
+            for="username">Identifiant :</label>
     <input
+            class="loginForm-main-input"
             id="username"
             type="text"
             name="username"
             autofocus="autofocus" /> <br />
     <label
-            for="password">Password</label>:
+            class="loginForm-main-label"
+            for="password">Mot de passe :</label>
     <input
+            class="loginForm-main-input"
             id="password"
             type="password"
             name="password" /> <br />
     <input
+            class="loginForm-main-submit"
             type="submit"
-            value="Log in" />
+            value="Connexion" />
 </form>

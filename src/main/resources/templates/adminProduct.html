@@ -14,10 +14,15 @@
 <header
         th:insert="components/general/header.html">
 </header>
-<main>
-    <section th:insert="components/admin/adminCategoryMenu.html">
+<main
+        class="adminProduct-main">
+    <section
+            class="adminProduct-main-blocCategory"
+            th:insert="components/admin/adminCategoryMenu.html">
     </section>
-    <section th:insert="components/admin/productManagement.html">
+    <section
+            class="adminProduct-main-productSection"
+            th:insert="components/admin/productManagement.html">
     </section>
 </main>
 <footer

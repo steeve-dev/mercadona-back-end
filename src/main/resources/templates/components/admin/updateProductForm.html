@@ -1,34 +1,54 @@
-
-
-<div>
-
-    <form action="#"
+<form action="#"
           th:action="@{/api/product/put/{id}(id=${product.id})}"
           th:object="${product}"
           method="post"
-    >
+          class="product-form">
+        <h2
+                class="product-form-title">Mettre à jour le produit
+        </h2>
+
         <input type="hidden" th:field="*{id}" />
 
-        <label for="name">Nom</label>
-        <input type="text"
+        <label
+                class="product-form-label"
+                for="name">Nom</label>
+        <input
+                class="product-form-input"
+                type="text"
                id="name"
                th:field="*{name}"
                th:value="${product.name}">
 
-        <label for="description">Description</label>
-        <input type="text"
-               id="description"
-               th:field="*{description}"
-               th:value="${product.description}">
+        <label
+                class="product-form-label"
+                for="description">Description</label>
+        <textarea
+                rows="5"
+                cols="25"
+                class="product-form-input"
+                type="text"
+                id="description"
+                th:field="*{description}"
+                th:value="${product.description}">
 
-        <label for="price">Prix</label>
-        <input type="text"
+        </textarea>
+
+        <label
+                class="product-form-label"
+                for="price">Prix</label>
+        <input
+                class="product-form-input"
+                type="text"
                id="price"
                th:field="*{price}"
                th:value="${product.price}">
 
-        <label for="category">Catégorie</label>
-        <select name="category"
+        <label
+                class="product-form-label"
+                for="category">Catégorie</label>
+        <select
+                class="product-form-label"
+                name="category"
                 id="category"
                 th:field="*{category}">
             <option
@@ -37,7 +57,8 @@
                     th:text="${productCategory.name}">
             </option>
         </select>
-        <input type="submit" value="Enregistrer">
+        <input
+                class="product-form-submit"
+                type="submit"
+                value="Enregistrer">
     </form>
-
-</div>
