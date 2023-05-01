@@ -1,3 +1,8 @@
+<a
+        class="product-main-buttonBack"
+        data-th-href="@{/admin/product}">Revenir à la gestion des articles
+</a>
+
 <form action="#"
           th:action="@{/api/product/put/{id}(id=${product.id})}"
           th:object="${product}"
@@ -57,6 +62,21 @@
                     th:text="${productCategory.name}">
             </option>
         </select>
+
+        <label
+                class="product-form-label"
+                for="image">Image de l'article</label>
+        <select
+                class="product-form-label"
+                name="image"
+                id="image"
+                th:field="*{imageLink}">
+                <option value="../../../../images/product/boissons.jpg">Boisson</option>
+                <option value="../../../../images/product/fruits-et-legumes.jpg">Fruit et légumes</option>
+                <option value="../../../../images/product/hygiene.jpg">Hygiène</option>
+                <option value="../../../../images/product/paquet-pates.jpg">Paquet de pates</option>
+        </select>
+
         <input
                 class="product-form-submit"
                 type="submit"

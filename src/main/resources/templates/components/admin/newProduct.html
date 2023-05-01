@@ -57,6 +57,23 @@
                     th:text="${productCategory.name}">
             </option>
         </select>
+
+    <label
+            class="product-form-label"
+            for="image">Image de l'article</label>
+    <select
+            class="product-form-label"
+            name="image"
+            id="image"
+            th:field="*{imageLink}">
+        <option value="../../../../images/product/boissons.jpg">Boisson</option>
+        <option value="../../../../images/product/fruits-et-legumes.jpg">Fruit et légumes</option>
+        <option value="../../../../images/product/hygiene.jpg">hygiène</option>
+        <option value="../../../../images/product/paquet-pates.jpg">paquet de pates</option>
+    </select>
+
+
+
         <input
                 class="product-form-submit"
                 type="submit"

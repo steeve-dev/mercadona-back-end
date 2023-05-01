@@ -194,6 +194,11 @@ footer {
   }
 }
 
+.productCard-image {
+  width: 100%;
+  height: 150px;
+}
+
 .home-main {
   display: flex;
   justify-content: space-around;
@@ -379,12 +384,12 @@ footer {
     width: 75%;
   }
 }
-@media screen and (min-width: 700px) and (max-width: 1024px) {
+@media screen and (min-width: 700px) and (max-width: 1130px) {
   .login-main-form {
     width: 50%;
   }
 }
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1131px) {
   .login-main-form {
     width: 30%;
   }
@@ -419,12 +424,12 @@ footer {
     width: 75%;
   }
 }
-@media screen and (min-width: 700px) and (max-width: 1024px) {
+@media screen and (min-width: 700px) and (max-width: 1130px) {
   .product-form {
     width: 50%;
   }
 }
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1131px) {
   .product-form {
     width: 30%;
   }
@@ -447,6 +452,15 @@ footer {
   font-size: 1.4rem;
 }
 
+.product-main-buttonBack {
+  background-color: darkgray;
+  font-size: 1.2rem;
+  text-decoration: none;
+  padding: 5px;
+  color: black;
+  border-radius: 5px;
+}
+
 .promotion-form {
   background-color: #009660;
   display: flex;
@@ -463,12 +477,12 @@ footer {
     width: 75%;
   }
 }
-@media screen and (min-width: 700px) and (max-width: 1024px) {
+@media screen and (min-width: 700px) and (max-width: 1130px) {
   .promotion-form {
     width: 50%;
   }
 }
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1131px) {
   .promotion-form {
     width: 30%;
   }
@@ -491,6 +505,88 @@ footer {
 .promotion-form-submit {
   font-size: 1.4rem;
   margin-top: 3vh;
+}
+
+.promotion-main-buttonBack {
+  background-color: darkgray;
+  font-size: 1.2rem;
+  text-decoration: none;
+  padding: 5px;
+  color: black;
+  border-radius: 5px;
+}
+
+.category-form {
+  background-color: darkgrey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75vw;
+  margin: auto;
+  border-radius: 8px;
+}
+@media screen and (min-width: 600px) and (max-width: 950px) {
+  .category-form {
+    width: 60vw;
+  }
+}
+@media screen and (min-width: 951px) and (max-width: 1519px) {
+  .category-form {
+    width: 40vw;
+  }
+}
+@media screen and (min-width: 1520px) {
+  .category-form {
+    width: 20vw;
+  }
+}
+
+.category-form-label, .category-form-input, .promotion-form-submit {
+  font-size: 1.4rem;
+  margin-bottom: 1vh;
+}
+
+.category-list-li {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  padding: 5px;
+  border-radius: 8px;
+  margin: auto;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  background-color: #009660;
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .category-list-li {
+    width: 75vw;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .category-list-li {
+    width: 50vw;
+    font-size: 2rem;
+  }
+}
+
+.category-list-a {
+  text-decoration: none;
+  color: lightgray;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.edit-button {
+  background-color: darkgreen;
+}
+
+.delete-button {
+  background-color: brown;
+}
+
+.category-list-p {
+  margin: 0;
+  color: lightgray;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -2,8 +2,11 @@
         class="home-main-productCard"
         th:each="product:${products}"
         th:if="${product.promotion}">
+    <img
+            class="productCard-image"
+            th:src="${product.imageLink}"
+            alt="image de l'article">
     <h3 th:text="${product.name}">nom du produit</h3>
     <p th:text="${product.price}">XX€</p>
     <p th:text="${product.description}">descritpion du produit</p>
-
 </div>

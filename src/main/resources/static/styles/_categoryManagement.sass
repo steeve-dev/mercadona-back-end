@@ -1,0 +1,50 @@
+.category-form
+  background-color: darkgrey
+  display: flex
+  flex-direction: column
+  align-items: center
+  width: 75vw
+  margin: auto
+  border-radius: 8px
+  @media screen and (min-width: 600px) and (max-width: 950px)
+    width: 60vw
+  @media screen and (min-width: 951px) and (max-width: 1519px)
+    width: 40vw
+  @media screen and (min-width: 1520px)
+    width: 20vw
+
+.category-form-label, .category-form-input, .promotion-form-submit
+  font-size: 1.4rem
+  margin-bottom: 1vh
+
+.category-list-li
+  list-style: none
+  display: flex
+  justify-content: space-around
+  padding: 5px
+  border-radius: 8px
+  margin: auto
+  margin-bottom: 10px
+  font-size: 1.5rem
+  background-color: $color-mercadona
+  @media screen and (min-width: 900px) and (max-width: 1199px)
+    width: 75vw
+  @media screen and (min-width: 1200px)
+    width: 50vw
+    font-size: 2rem
+
+.category-list-a
+  text-decoration: none
+  color: lightgray
+  padding: 5px
+  border-radius: 5px
+
+.edit-button
+  background-color: darkgreen
+
+.delete-button
+  background-color: brown
+
+.category-list-p
+  margin: 0
+  color: lightgray

@@ -3,22 +3,45 @@
             action="#"
             th:action="@{/api/category/post}"
             th:object="${newCategory}"
-            method="post">
+            method="post"
+            class="category-form"
+    >
 
-        <label for="name">Ajouter une catégorie :</label>
+        <label
+                class="category-form-label"
+                for="name">Ajouter une catégorie :
+        </label>
         <input
+                class="category-form-input"
                 type="text"
                 name="name"
                 id="name"
                 placeholder="nom"
                 th:field="*{name}">
-        <button type="submit">Créer</button>
+        <button
+                class="category-form-input"
+                type="submit">Créer</button>
     </form>
 
-    <ul>
-        <li th:each="category:${categoryList}">
-            <p th:text="${category.name}">category</p>
-            <a th:href="@{/api/category/delete/{id}(id=${category.id})}">Supprimer</a>
+    <ul
+            class="category-list-ul">
+        <li
+                class="category-list-li"
+                th:each="category:${categoryList}">
+            <p
+                    class="category-list-p"
+                    th:text="${category.name}">category
+            </p>
+            <a
+                    class="category-list-a edit-button"
+                    href="">
+                Modifier
+            </a>
+            <a
+                    class="category-list-a delete-button"
+                    th:href="@{/api/category/delete/{id}(id=${category.id})}">
+                Supprimer
+            </a>
         </li>
     </ul>
 

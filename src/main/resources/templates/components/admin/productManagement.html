@@ -1,6 +1,10 @@
 <div
         class="productManagement-main-productCard"
         th:each="product:${products}">
+    <img
+            class="productCard-image"
+            th:src="${product.imageLink}"
+            alt="image de l'article">
     <p th:text="${product.name}"></p>
     <p th:text="${product.price}"></p>
     <p th:text="${product.description}"></p>

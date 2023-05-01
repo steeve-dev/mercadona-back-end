@@ -1,9 +1,14 @@
 package com.example.mercadonabackend.pojo;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Product implements Serializable {
     @Id
     @SequenceGenerator(name="product_seq",
@@ -19,6 +24,9 @@ public class Product implements Serializable {
     @Column(name = "description", length = 1000)
     private String description;
 
+    @Column(name = "image")
+    private String imageLink;
+
     @Column(name = "price")
     private Float price;
 
@@ -30,32 +38,6 @@ public class Product implements Serializable {
     @JoinColumn(name = "category_id")
     private Category category;
 
-    public Product(Long id, String name, String description, Float price, Category category) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.category = category;
-    }
-
-    public Product(Long id, String name, String description, Float price, Promotion promotion, Category category) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.promotion = promotion;
-        this.category = category;
-    }
-
-    public Product(Long id, Promotion promotion, Category category) {
-        this.id = id;
-        this.promotion = promotion;
-        this.category = category;
-    }
-
-    public Product(){
-
-    }
 
     public Category getCategory() {
         return category;
@@ -67,6 +49,14 @@ public class Product implements Serializable {
 
     public Float getPrice() {
         return price;
+    }
+
+    public String getImageLink() {
+        return imageLink;
+    }
+
+    public void setImageLink(String imageLink) {
+        this.imageLink = imageLink;
     }
 
     public void setPrice(Float price) {
