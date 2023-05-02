@@ -68,8 +68,9 @@ footer {
 }
 
 .home-main-blocCategory {
-  background-color: antiquewhite;
+  background-color: darkgray;
   width: 30vw;
+  border-radius: 5px;
   align-self: flex-start;
 }
 @media screen and (min-width: 500px) and (max-width: 620px) {
@@ -132,9 +133,10 @@ footer {
 }
 
 .home-main-productSection {
-  background-color: burlywood;
+  background-color: rgba(255, 161, 0, 0.62);
   min-height: 75vh;
   display: flex;
+  border-radius: 5px;
   width: 60vw;
   flex-wrap: wrap;
 }
@@ -167,11 +169,14 @@ footer {
 .home-main-productCard {
   width: 85%;
   margin: auto;
-  background-color: darkcyan;
+  background-color: #009660;
   margin-bottom: 10px;
   margin-top: 10px;
   border-radius: 5px;
   align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 @media screen and (min-width: 621px) and (max-width: 850px) {
   .home-main-productCard {
@@ -195,8 +200,55 @@ footer {
 }
 
 .productCard-image {
-  width: 100%;
+  width: 95%;
+  margin-top: 5px;
   height: 150px;
+}
+
+.productCard-price-div {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.productCard-name, .productCard-price-p {
+  font-size: 1.5rem;
+  margin: 8px;
+}
+
+.productCard-price-noPromo, .productCard-pricePromo-p {
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.productCard-price-noPromo {
+  font-weight: bold;
+}
+
+.productCard-description {
+  font-size: 1.2rem;
+  margin: 10px;
+}
+
+.productCard-pricePromo-p {
+  color: red;
+  font-weight: bold;
+}
+
+.productCard-price-p {
+  text-decoration: line-through;
+  margin-top: 0;
+}
+
+.productCard-date {
+  font-size: 1.2rem;
+  margin-top: 0;
+}
+
+.productCard-date-begin, .productCard-date-end {
+  font-size: 1.3rem;
+  font-weight: bold;
 }
 
 .home-main {
@@ -246,8 +298,9 @@ footer {
 }
 
 .adminProduct-main-blocCategory {
-  background-color: antiquewhite;
+  background-color: darkgray;
   width: 30vw;
+  border-radius: 5px;
   align-self: flex-start;
 }
 @media screen and (min-width: 500px) and (max-width: 620px) {
@@ -282,9 +335,10 @@ footer {
 }
 
 .adminProduct-main-productSection {
-  background-color: burlywood;
+  background-color: rgba(255, 161, 0, 0.62);
   min-height: 75vh;
   display: flex;
+  border-radius: 5px;
   width: 60vw;
   flex-wrap: wrap;
 }
@@ -317,11 +371,15 @@ footer {
 .productManagement-main-productCard {
   width: 85%;
   margin: auto;
-  background-color: darkcyan;
+  background-color: #009660;
   margin-bottom: 10px;
   margin-top: 10px;
   border-radius: 5px;
   align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
 }
 @media screen and (min-width: 621px) and (max-width: 850px) {
   .productManagement-main-productCard {
@@ -342,6 +400,23 @@ footer {
   .productManagement-main-productCard {
     width: 18%;
   }
+}
+
+.productCard-date {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.main-productManagement-a {
+  text-decoration: none;
+  background-color: lightgray;
+  color: black;
+  margin: auto;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  padding: 5px;
 }
 
 .adminProduct-main {

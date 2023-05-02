@@ -3,8 +3,9 @@
 /* Home Page */
 
 @mixin blocCategory
-  background-color: antiquewhite
+  background-color: darkgray
   width: 30vw
+  border-radius: 5px
   align-self: flex-start
   @media screen and (min-width: 500px) and (max-width: 620px)
     width: 30vw
@@ -18,9 +19,10 @@
     width: 13vw
 
 @mixin productSection
-  background-color: burlywood
+  background-color: $color-mercadona_logo
   min-height: 75vh
   display: flex
+  border-radius: 5px
   width: 60vw
   flex-wrap: wrap
   @media screen and (min-width: 500px) and (max-width: 620px)
@@ -37,11 +39,14 @@
 @mixin productCard
   width: 85%
   margin: auto
-  background-color: darkcyan
+  background-color: $color-mercadona
   margin-bottom: 10px
   margin-top: 10px
   border-radius: 5px
   align-self: flex-start
+  display: flex
+  flex-direction: column
+  align-items: center
   @media screen and (min-width: 621px) and (max-width: 850px)
     width: 40%
   @media screen and (min-width: 851px) and (max-width: 1024px)

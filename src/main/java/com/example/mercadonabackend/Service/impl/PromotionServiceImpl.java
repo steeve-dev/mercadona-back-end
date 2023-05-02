@@ -56,8 +56,10 @@ public class PromotionServiceImpl implements PromotionService {
 
         promotionRepository.save(promotion);
         product.setPromotion(promotion);
+        int percentage = 100-promotion.getPercentage();
+        float pricePromotion = product.getPrice()*percentage/100;
+        product.setPromotionPrice(pricePromotion);
         productRepository.save(product);
-
     }
 
     @Override
@@ -71,6 +73,7 @@ public class PromotionServiceImpl implements PromotionService {
         Product product = productService.getProductById(id);
         Promotion promotion = product.getPromotion();
         product.setPromotion(null);
+        product.setPromotionPrice(null);
         promotionRepository.deleteById(promotion.getId());
         productRepository.save(product);
     }

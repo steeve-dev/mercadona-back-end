@@ -5,16 +5,64 @@
             class="productCard-image"
             th:src="${product.imageLink}"
             alt="image de l'article">
-    <p th:text="${product.name}"></p>
-    <p th:text="${product.price}"></p>
-    <p th:text="${product.description}"></p>
-    <p th:text="${product.category.name}"></p>
+    <h3
+            class="productCard-name"
+            th:text="${product.name}"></h3>
+
+    <p
+            th:unless="${product.promotion}"
+            th:text="${product.price}+'€'"
+            class="productCard-price-noPromo"></p>
+
+    <div
+            th:if="${product.promotion}"
+            class="productCard-price-div">
+        <p
+                th:text="${product.promotionPrice}+'€'"
+                class="productCard-pricePromo-p">XX€</p>
+        <p
+                th:text="${product.price}+'€'"
+                class="productCard-price-p">XX€</p>
+    </div>
+    <div
+            th:if="${product.promotion}">
+        <div
+                th:each="promotion:${product.promotion}">
+            <div class="productCard-date">
+                <p> Du : </p>
+                <p
+                        class="productCard-date-begin"
+                        th:text="${promotion.beginDate}"></p>
+            </div>
+            <div class="productCard-date">
+                <p> au : </p>
+                <p
+                        class="productCard-date-end"
+                        th:text="${promotion.endDate}"></p>
+            </div>
+
+        </div>
+    </div>
+
+    <p
+            class="productCard-description"
+            th:text="${product.description}"></p>
+    <p
+            class="productCard-categoryName"
+            th:text="'Catégorie :'+${product.category.name}"></p>
     <div
             class="main-productManagement-links">
-        <a data-th-href="@{/admin/product/update/{id}(id=${product.id})}">Modifier le produit</a>
-        <a th:href="@{/api/product/delete/{id}(id=${product.id})}">Supprimer le produit</a>
-        <a th:unless="${product.promotion}" data-th-href="@{/admin/add/promotion/{id}(id = ${product.id})}">Ajouter une promotion</a>
         <a
+                class="main-productManagement-a"
+                data-th-href="@{/admin/product/update/{id}(id=${product.id})}">Modifier le produit</a>
+        <a
+                class="main-productManagement-a"
+                th:href="@{/api/product/delete/{id}(id=${product.id})}">Supprimer le produit</a>
+        <a
+                class="main-productManagement-a"
+                th:unless="${product.promotion}" data-th-href="@{/admin/add/promotion/{id}(id = ${product.id})}">Ajouter une promotion</a>
+        <a
+                class="main-productManagement-a"
                 th:if="${product.promotion}" data-th-href="@{/api/promotion/delete/{id}(id = ${product.id})}">Supprimer la promotion</a>
     </div>
 </div>

@@ -30,6 +30,17 @@ public class Product implements Serializable {
     @Column(name = "price")
     private Float price;
 
+    @Column(name = "promotion_price")
+    private Float promotionPrice = null;
+
+    public Float getPromotionPrice() {
+        return promotionPrice;
+    }
+
+    public void setPromotionPrice(Float promotionPrice) {
+        this.promotionPrice = promotionPrice;
+    }
+
     @OneToOne
     @JoinColumn(name = "promotion_id")
     private Promotion promotion = null;
