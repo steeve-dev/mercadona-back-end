@@ -6,6 +6,7 @@ import com.example.mercadonabackend.pojo.Category;
 import com.example.mercadonabackend.pojo.Product;
 import com.example.mercadonabackend.repository.CategoryRepository;
 import com.example.mercadonabackend.repository.ProductRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -48,8 +49,15 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public void updateCategory(Long categoryId, Category category) {
-
+    public void updateCategory(Long categoryId, String newName) {
+        Optional<Category> categoryOptional = categoryRepository.findById(categoryId);
+        if (categoryOptional.isPresent()) {
+            Category category = categoryOptional.get();
+            category.setName(newName);
+            categoryRepository.save(category);
+        } else {
+            throw new EntityNotFoundException("La catégorie avec l'ID " + categoryId + " n'existe pas");
+        }
     }
 
     @Override

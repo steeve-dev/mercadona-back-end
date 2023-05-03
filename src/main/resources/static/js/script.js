@@ -34,4 +34,3 @@ for (let i = 0; i < categoryLinks.length; i++) {
     });
 }
 
-

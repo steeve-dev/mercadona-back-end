@@ -23,26 +23,35 @@
                 type="submit">Créer</button>
     </form>
 
+
     <ul
             class="category-list-ul">
-        <li
-                class="category-list-li"
+        <div
                 th:each="category:${categoryList}">
-            <p
-                    class="category-list-p"
-                    th:text="${category.name}">category
-            </p>
-            <a
-                    class="category-list-a edit-button"
-                    href="">
-                Modifier
-            </a>
-            <a
-                    class="category-list-a delete-button"
-                    th:href="@{/api/category/delete/{id}(id=${category.id})}">
-                Supprimer
-            </a>
-        </li>
+            <div class="category-list-li">
+                <p
+                        class="category-list-p"
+                        th:text="${category.name}">category
+                </p>
+                <a
+                        id="category-update-name"
+                        class="category-list-a edit-button"
+                        th:attr="update-cetegory-id=${category.id}">
+                    Modifier
+                </a>
+                <a
+                        class="category-list-a delete-button"
+                        th:href="@{/api/category/delete/{id}(id=${category.id})}">
+                    Supprimer
+                </a>
+            </div>
+            <div
+                    class="category-update-div"
+                    th:id="'category-update-form'+${category.id}">
+
+            </div>
+        </div>
+
     </ul>
 
 </div>

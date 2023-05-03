@@ -14,10 +14,10 @@ public class CategoryWs {
     @Autowired
     private CategoryService service;
 
-    @PutMapping("{id}")
-    public void updateCategory(@PathVariable(name = "id") Long id,
-                               Category category){
-        service.updateCategory(id, category);
+    @PostMapping("{id}")
+    public String updateCategory(@PathVariable(name = "id") Long id, @RequestParam(name = "newName") String newName){
+        service.updateCategory(id, newName);
+        return "redirect:/admin/category";
     }
 
     @PostMapping("/post")

@@ -1,0 +1,13 @@
+<form
+        th:action="@{/api/category/{id}(id=${category.id})}"
+        method="post">
+    <label for="newName">Nouveau nom :</label>
+    <input
+            type="text"
+            name="newName"
+            id="newName"
+            th:value="${category.name}">
+    <input
+            type="submit"
+           value="modifier">
+</form>

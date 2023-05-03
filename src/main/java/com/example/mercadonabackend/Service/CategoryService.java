@@ -15,7 +15,7 @@ public interface CategoryService {
 
     List<Product> getProductOfCategoryId(Long id);
 
-    void updateCategory (Long categoryId, Category category);
+    void updateCategory (Long categoryId, String newName);
 
     void createCategory(Category category);
 

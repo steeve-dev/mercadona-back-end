@@ -664,4 +664,11 @@ footer {
   color: lightgray;
 }
 
+.category-update-div {
+  display: flex;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
 /*# sourceMappingURL=style.css.map */

@@ -7,6 +7,7 @@ import com.example.mercadonabackend.pojo.Product;
 import com.example.mercadonabackend.pojo.Promotion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,6 +40,14 @@ public class AdminController {
         getCategoryPage.addObject("categoryList", categoryService.getAllCategory());
 
         return getCategoryPage;
+    }
+
+    @GetMapping("category/update/{id}")
+    public String updateCategoryForm(@PathVariable(name = "id")Long id, Model model){
+
+        model.addAttribute("category", categoryService.getCategoryById(id));
+
+        return "components/admin/categoryUpdateForm.html";
     }
 
     @GetMapping("/product/add")
