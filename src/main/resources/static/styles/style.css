@@ -116,13 +116,13 @@ footer {
   justify-content: center;
 }
 
-.home-main-categoryList__a {
+.home-main-categoryList__a, .home-main-categoryList__a-catalogue, .home-main-categoryList__a-promotion {
   font-size: 1.2rem;
   margin-bottom: 8px;
   color: brown;
 }
 @media screen and (min-width: 900px) {
-  .home-main-categoryList__a {
+  .home-main-categoryList__a, .home-main-categoryList__a-catalogue, .home-main-categoryList__a-promotion {
     font-size: 1.6rem;
   }
 }

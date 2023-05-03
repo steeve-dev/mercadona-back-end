@@ -6,6 +6,7 @@ import com.example.mercadonabackend.Service.ProductService;
 import com.example.mercadonabackend.pojo.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,27 +32,27 @@ public class HomeController {
         return getCategory;
     }
 
-    @GetMapping("{id}")
-    public ModelAndView getProductByCategory(@PathVariable(name = "id")Long id)
+    @GetMapping("category/{id}")
+    public String getProductByCategory(@PathVariable(name = "id")Long id, Model model)
     {
-        ModelAndView getProducts = new ModelAndView();
-        getProducts.setViewName("index.html");
-        Category currentCategory = categoryService.getCategoryById(id);
-        getProducts.addObject("categoryList", categoryService.getAllCategory());
-        getProducts.addObject("products", productService.getProductByCategory(currentCategory));
 
-        return getProducts;
+        Category currentCategory = categoryService.getCategoryById(id);
+        model.addAttribute("categoryList", categoryService.getAllCategory());
+        model.addAttribute("products", productService.getProductByCategory(currentCategory));
+
+        return "components/home/productCard.html";
     }
+
 
     @GetMapping("/promotion")
-    public ModelAndView getProductWithPromotion(){
-        ModelAndView getProducts = new ModelAndView();
-        getProducts.setViewName("homePromotion.html");
-        getProducts.addObject("categoryList", categoryService.getAllCategory());
-        getProducts.addObject("products", productService.getAllProduct());
+    public String getProductWithPromotion2(Model model){
 
-        return getProducts;
+        model.addAttribute("categoryList", categoryService.getAllCategory());
+        model.addAttribute("products", productService.getAllProduct());
+        return "components/home/getPromotion.html";
     }
+
+
     public HomeController(ProductService productService) {
         this.productService = productService;
     }

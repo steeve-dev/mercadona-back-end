@@ -1,46 +1,49 @@
 <div
-        class="home-main-productCard"
-        th:each="product:${products}"
-        th:if="${product.promotion}">
-    <img
-            class="productCard-image"
-            th:src="${product.imageLink}"
-            alt="image de l'article">
-    <h3
-            class="productCard-name"
-            th:text="${product.name}"></h3>
-
-    <div
-            th:if="${product.promotion}"
-            class="productCard-price-div">
-        <p
-                th:text="${product.promotionPrice}+'€'"
-                class="productCard-pricePromo-p">XX€</p>
-        <p
-                th:text="${product.price}+'€'"
-                class="productCard-price-p">XX€</p>
-    </div>
-    <div
+            id="home-product_promotion"
+            class="home-main-productCard"
+            th:each="product:${products}"
             th:if="${product.promotion}">
-        <div
-                th:each="promotion:${product.promotion}">
-            <div class="productCard-date">
-                <p> Du : </p>
-                <p
-                        class="productCard-date-begin"
-                        th:text="${promotion.beginDate}"></p>
-            </div>
-            <div class="productCard-date">
-                <p> au : </p>
-                <p
-                        class="productCard-date-end"
-                        th:text="${promotion.endDate}"></p>
-            </div>
+        <img
+                class="productCard-image"
+                th:src="${product.imageLink}"
+                alt="image de l'article">
+        <h3
+                class="productCard-name"
+                th:text="${product.name}"></h3>
 
+        <div
+                th:if="${product.promotion}"
+                class="productCard-price-div">
+            <p
+                    th:text="${product.promotionPrice}+'€'"
+                    class="productCard-pricePromo-p">XX€</p>
+            <p
+                    th:text="${product.price}+'€'"
+                    class="productCard-price-p">XX€</p>
         </div>
+        <div
+                th:if="${product.promotion}">
+            <div
+                    th:each="promotion:${product.promotion}">
+                <div class="productCard-date">
+                    <p> Du : </p>
+                    <p
+                            class="productCard-date-begin"
+                            th:text="${promotion.beginDate}"></p>
+                </div>
+                <div class="productCard-date">
+                    <p> au : </p>
+                    <p
+                            class="productCard-date-end"
+                            th:text="${promotion.endDate}"></p>
+                </div>
+
+            </div>
+        </div>
+
+        <p
+                class="productCard-description"
+                th:text="${product.description}"></p>
     </div>
 
-    <p
-            class="productCard-description"
-            th:text="${product.description}"></p>
-</div>
+

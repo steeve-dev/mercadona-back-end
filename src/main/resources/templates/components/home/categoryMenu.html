@@ -3,13 +3,13 @@
         class="home-main-category__ul">
     <li class="home-main-categoryList">
         <a
-                class="home-main-categoryList__a"
+                class="home-main-categoryList__a-catalogue"
                 data-th-href="@{/}">Catalogue</a>
     </li>
     <li class="home-main-categoryList">
         <a
-                class="home-main-categoryList__a"
-                data-th-href="@{/promotion}">
+                id="promotion-productCard"
+                class="home-main-categoryList__a-promotion">
             Promotions
         </a>
 
@@ -18,9 +18,10 @@
             class="home-main-categoryList"
             th:each="category:${categoryList}">
         <a
+                id="category-productCard"
                 class="home-main-categoryList__a"
-                data-th-href="@{${category.id}}"
-                th:text="${category.name}">
+                th:text="${category.name}"
+                th:attr="data-category-id=${category.id}">
         </a>
     </li>
 </ul>

@@ -26,7 +26,7 @@ public class SecurityConfiguration {
                 .disable()
                 .authorizeHttpRequests()
                 .requestMatchers("/admin/**", "api/**").authenticated()
-                .requestMatchers("/", "/{id}", "/test", "/promotion", "/images/**", "/styles/**", "/register", "/register/save")
+                .requestMatchers("/", "/{id}", "/test", "/promotion/**","/js/**", "category/**", "/images/**", "/styles/**", "/register", "/register/save")
                 .permitAll()
                 .and()
                 .formLogin(form -> form
