@@ -20,9 +20,11 @@
         <input
                 class="product-form-input"
                 type="text"
-               id="name"
-               th:field="*{name}"
-               th:value="${product.name}">
+                id="name"
+                th:field="*{name}"
+                th:maxlength="60"
+                required
+                th:value="${product.name}">
 
         <label
                 class="product-form-label"
@@ -30,6 +32,8 @@
         <textarea
                 rows="5"
                 cols="25"
+                required
+                th:maxlength="500"
                 class="product-form-input"
                 type="text"
                 id="description"
@@ -44,9 +48,10 @@
         <input
                 class="product-form-input"
                 type="text"
-               id="price"
-               th:field="*{price}"
-               th:value="${product.price}">
+                id="price"
+                required pattern="[0-9]+([.][0-9]+)?"
+                th:field="*{price}"
+                th:value="${product.price}">
 
         <label
                 class="product-form-label"

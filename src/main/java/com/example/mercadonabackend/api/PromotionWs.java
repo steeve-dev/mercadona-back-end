@@ -1,5 +1,6 @@
 package com.example.mercadonabackend.api;
 
+import com.example.mercadonabackend.Service.ProductService;
 import com.example.mercadonabackend.Service.PromotionService;
 import com.example.mercadonabackend.pojo.Product;
 import com.example.mercadonabackend.pojo.Promotion;
@@ -15,6 +16,9 @@ public class PromotionWs {
 
     @Autowired
     private PromotionService promotionService;
+
+    @Autowired
+    private ProductService productService;
 
     @PostMapping("/post/{id}")
     public String createPromotion(Promotion promotion, @PathVariable (name = "id") Product product, HttpServletRequest request){
@@ -34,5 +38,4 @@ public class PromotionWs {
         promotionService.deletePromotion(id);
         return "redirect:/admin/product";
     }
-
 }

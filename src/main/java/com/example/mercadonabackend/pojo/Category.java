@@ -1,6 +1,8 @@
 package com.example.mercadonabackend.pojo;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +18,7 @@ public class Category {
     private Long id;
 
     @Column(name = "name")
+    @Size(min = 1, max = 50)
     private String name;
 
     @OneToMany(mappedBy = "category", orphanRemoval = true)

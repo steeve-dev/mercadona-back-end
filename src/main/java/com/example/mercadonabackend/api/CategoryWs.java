@@ -7,6 +7,8 @@ import com.example.mercadonabackend.pojo.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.*;
+
 @Controller
 @RequestMapping(ApiRegistration.REST_PREFIX + ApiRegistration.REST_CATEGORY)
 public class CategoryWs {
@@ -29,7 +31,6 @@ public class CategoryWs {
 
     @GetMapping("delete/{id}")
     public String deleteCategory(@PathVariable(name = "id") Long id){
-
         service.deleteCategory(id);
         return "redirect:/admin/category";
     }

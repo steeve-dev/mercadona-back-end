@@ -43,7 +43,6 @@
 
         </div>
     </div>
-
     <p
             class="productCard-description"
             th:text="${product.description}"></p>
@@ -57,12 +56,14 @@
                 data-th-href="@{/admin/product/update/{id}(id=${product.id})}">Modifier le produit</a>
         <a
                 class="main-productManagement-a"
+                onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article ?')"
                 th:href="@{/api/product/delete/{id}(id=${product.id})}">Supprimer le produit</a>
         <a
                 class="main-productManagement-a"
                 th:unless="${product.promotion}" data-th-href="@{/admin/add/promotion/{id}(id = ${product.id})}">Ajouter une promotion</a>
         <a
                 class="main-productManagement-a"
+                onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette promotion ?')"
                 th:if="${product.promotion}" data-th-href="@{/api/promotion/delete/{id}(id = ${product.id})}">Supprimer la promotion</a>
     </div>
 </div>

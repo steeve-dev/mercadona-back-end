@@ -25,7 +25,7 @@ const categoryLinks = document.getElementsByClassName("home-main-categoryList__a
 
 for (let i = 0; i < categoryLinks.length; i++) {
     categoryLinks[i].addEventListener('click', function(event) {
-        event.preventDefault(); // Empêcher le comportement par défaut du lien
+        event.preventDefault();
 
         let categoryId = event.target.getAttribute('data-category-id');
         let url = '/category/' + categoryId; // l'URL du contrôleur correspondant à la catégorie

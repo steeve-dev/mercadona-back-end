@@ -6,7 +6,6 @@
             method="post"
             class="category-form"
     >
-
         <label
                 class="category-form-label"
                 for="name">Ajouter une catégorie :
@@ -17,13 +16,13 @@
                 name="name"
                 id="name"
                 placeholder="nom"
-                th:field="*{name}">
+                th:field="*{name}"
+                required
+                th:maxlength="50">
         <button
                 class="category-form-input"
                 type="submit">Créer</button>
     </form>
-
-
     <ul
             class="category-list-ul">
         <div
@@ -40,7 +39,9 @@
                     Modifier
                 </a>
                 <a
+                        th:attr="delete-category-attr=${category.id}"
                         class="category-list-a delete-button"
+                        onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette catégorie ? Attention, si la catégorie contient des produits, ils seront supprimés également.')"
                         th:href="@{/api/category/delete/{id}(id=${category.id})}">
                     Supprimer
                 </a>

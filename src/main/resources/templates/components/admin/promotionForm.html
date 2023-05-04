@@ -23,6 +23,9 @@
                 type="number"
                 name="percentage"
                 id="percentage"
+                max="100"
+                min="1"
+                required
                 th:field="*{percentage}">
         <label
                 class="promotion-form-label"
@@ -31,6 +34,7 @@
                 class="promotion-form-input"
                 type="date"
                 name="dateEnd"
+                required
                 id="beginDate">
 
         <label
@@ -40,6 +44,7 @@
                 class="promotion-form-input"
                 type="date"
                 name="dateBegin"
+                required
                 id="endDate">
 
         <input

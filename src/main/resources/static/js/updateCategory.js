@@ -11,7 +11,7 @@ const categoryForm = document.getElementsByClassName("edit-button");
 
 for (let i = 0; i < categoryForm.length; i++) {
     categoryForm[i].addEventListener('click', function(event) {
-        event.preventDefault(); // Empêcher le comportement par défaut du lien
+        event.preventDefault();
 
         let categoryId = event.target.getAttribute('update-cetegory-id');
         let url = "category/update/" + categoryId; // l'URL du contrôleur correspondant à la catégorie

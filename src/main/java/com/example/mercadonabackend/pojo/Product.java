@@ -33,15 +33,7 @@ public class Product implements Serializable {
     @Column(name = "promotion_price")
     private Float promotionPrice = null;
 
-    public Float getPromotionPrice() {
-        return promotionPrice;
-    }
-
-    public void setPromotionPrice(Float promotionPrice) {
-        this.promotionPrice = promotionPrice;
-    }
-
-    @OneToOne
+    @OneToOne(orphanRemoval = true, cascade = CascadeType.ALL)
     @JoinColumn(name = "promotion_id")
     private Promotion promotion = null;
 
@@ -49,6 +41,13 @@ public class Product implements Serializable {
     @JoinColumn(name = "category_id")
     private Category category;
 
+    public Float getPromotionPrice() {
+        return promotionPrice;
+    }
+
+    public void setPromotionPrice(Float promotionPrice) {
+        this.promotionPrice = promotionPrice;
+    }
 
     public Category getCategory() {
         return category;
