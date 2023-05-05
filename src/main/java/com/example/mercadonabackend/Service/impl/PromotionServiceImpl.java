@@ -9,6 +9,8 @@ import com.example.mercadonabackend.repository.PromotionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -55,8 +57,10 @@ public class PromotionServiceImpl implements PromotionService {
         promotionRepository.save(promotion);
         product.setPromotion(promotion);
         int percentage = 100-promotion.getPercentage();
-        float pricePromotion = product.getPrice()*percentage/100;
-        product.setPromotionPrice(pricePromotion);
+        float pricePromotion = product.getPrice() * percentage / 100;
+        BigDecimal bd = new BigDecimal(Float.toString(pricePromotion));
+        bd = bd.setScale(2, RoundingMode.HALF_UP);
+        product.setPromotionPrice(bd.floatValue());
         productRepository.save(product);
     }
 

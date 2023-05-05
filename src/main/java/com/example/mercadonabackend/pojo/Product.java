@@ -1,6 +1,9 @@
 package com.example.mercadonabackend.pojo;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.Digits;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -19,15 +22,20 @@ public class Product implements Serializable {
     private Long id;
 
     @Column(name = "name")
+    @Size(min = 1, max = 60)
     private String name;
 
     @Column(name = "description", length = 1000)
+    @Size(min = 1, max = 500)
     private String description;
 
     @Column(name = "image")
+    @Size(min = 1, max = 150)
     private String imageLink;
 
     @Column(name = "price")
+    @Digits(integer = 8, fraction = 2, message ="Le prix doit être un nombre décimal positif avec deux chiffres après la virgule.")
+    @DecimalMin(value = "0.00", inclusive = true, message = "Le prix doit être un nombre décimal positif avec deux chiffres après la virgule.")
     private Float price;
 
     @Column(name = "promotion_price")

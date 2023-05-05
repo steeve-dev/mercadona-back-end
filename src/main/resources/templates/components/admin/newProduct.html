@@ -1,67 +1,81 @@
 <form action="#"
-          th:action="@{/api/product/post}"
-          th:object="${product}"
-          method="post"
-          class="product-form">
+      th:action="@{/api/product/post}"
+      th:object="${product}"
+      method="post"
+      class="product-form">
     <h2
             class="product-form-title">Nouveau produit
     </h2>
+    <input
+            type="hidden"
+            th:name="${_csrf.parameterName}"
+            th:value="${_csrf.token}" />
 
-        <input type="hidden" th:field="*{id}" />
+    <input type="hidden" th:field="*{id}" />
 
-        <label
-                class="product-form-label"
-                for="name">Nom</label>
-        <input
-                class="product-form-input"
-                type="text"
-                id="name"
-                placeholder="nom"
-                th:maxlength="50"
-                required
-                th:field="*{name}">
+    <label
+            class="product-form-label"
+            for="name">Nom</label>
+    <input
+            class="product-form-input"
+            type="text"
+            id="name"
+            placeholder="nom"
+            th:maxlength="50"
+            required
+            th:field="*{name}">
+    <span
+            class="error"
+            th:if="${#fields.hasErrors('name')}"
+            th:errors="*{name}">Error message</span>
 
-        <label
-                class="product-form-label"
-                for="description">Description</label>
-        <textarea
-                rows="5"
-                cols="25"
-                required
-                th:maxlength="500"
-                class="product-form-input"
-                type="text"
-                id="description"
-                placeholder="description"
-                th:field="*{description}">
+    <label
+            class="product-form-label"
+            for="description">Description</label>
+    <textarea
+            rows="5"
+            cols="25"
+            required
+            th:maxlength="500"
+            class="product-form-input"
+            type="text"
+            id="description"
+            placeholder="description"
+            th:field="*{description}">
         </textarea>
+    <span class="error"
+          th:if="${#fields.hasErrors('description')}"
+          th:errors="*{description}">Error message</span>
 
-        <label
-                class="product-form-label"
-                for="price">Prix</label>
-        <input
-                class="product-form-input"
-                type="text"
-                id="price"
-                required pattern="[0-9]+([.][0-9]+)?"
-                placeholder="prix"
-                th:field="*{price}">
+    <label
+            class="product-form-label"
+            for="price">Prix</label>
+    <input
+            class="product-form-input"
+            type="text"
+            id="price"
+            required pattern="[0-9]+([.][0-9]+)?"
+            placeholder="prix"
+            th:field="*{price}">
+    <span class="error"
+          th:if="${#fields.hasErrors('price')}"
+          th:errors="*{price}">Error message</span>
 
-        <label
-                class="product-form-label"
-                for="category">Catégorie</label>
+    <label
+            class="product-form-label"
+            for="category">Catégorie</label>
 
-        <select
-                class="product-form-label"
-                name="category"
-                id="category"
-                th:field="*{category}">
-            <option
-                    th:each="productCategory:${categoryList}"
-                    th:value="${productCategory.id}"
-                    th:text="${productCategory.name}">
-            </option>
-        </select>
+    <select
+            class="product-form-label"
+            name="category"
+            id="category"
+            th:field="*{category}">
+        <option
+                th:each="productCategory:${categoryList}"
+                th:value="${productCategory.id}"
+                th:text="${productCategory.name}">
+        </option>
+    </select>
 
     <label
             class="product-form-label"
@@ -77,8 +91,8 @@
         <option value="../../../../images/product/paquet-pates.jpg">paquet de pates</option>
     </select>
 
-        <input
-                class="product-form-submit"
-                type="submit"
-                value="Enregistrer">
-    </form>
+    <input
+            class="product-form-submit"
+            type="submit"
+            value="Enregistrer">
+</form>

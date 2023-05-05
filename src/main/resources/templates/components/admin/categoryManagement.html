@@ -6,6 +6,10 @@
             method="post"
             class="category-form"
     >
+        <input
+                type="hidden"
+               th:name="${_csrf.parameterName}"
+                th:value="${_csrf.token}" />
         <label
                 class="category-form-label"
                 for="name">Ajouter une catégorie :
@@ -16,13 +20,22 @@
                 name="name"
                 id="name"
                 placeholder="nom"
+                maxlength="50"
                 th:field="*{name}"
-                required
-                th:maxlength="50">
+                required>
         <button
                 class="category-form-input"
                 type="submit">Créer</button>
     </form>
+
+    <div th:if="${errorMessage}" class="error-message">
+        <span th:text="${errorMessage}"></span>
+    </div>
+
+    <div th:if="${errorUpdateMessage}" class="error-message">
+        <span th:text="${errorUpdateMessage}"></span>
+
+    </div>
     <ul
             class="category-list-ul">
         <div
@@ -51,7 +64,6 @@
                     th:id="'category-update-form'+${category.id}">
 
             </div>
-        </div>
 
     </ul>
 

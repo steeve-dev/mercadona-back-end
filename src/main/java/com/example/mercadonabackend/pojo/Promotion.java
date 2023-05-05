@@ -2,6 +2,9 @@ package com.example.mercadonabackend.pojo;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 
@@ -23,6 +26,8 @@ public class Promotion implements Serializable {
     private LocalDate endDate;
 
     @Column(name = "percentage")
+    @Min(value = 1, message = "La valeur doit être au minimum égale à 1")
+    @Max(value = 100, message = "La valeur doit être au maximum égale à 100")
     private Integer percentage;
 
     @OneToOne(cascade = CascadeType.ALL)
