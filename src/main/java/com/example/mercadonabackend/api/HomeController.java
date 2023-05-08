@@ -17,9 +17,10 @@ import org.springframework.web.servlet.ModelAndView;
 public class HomeController {
 
     @Autowired
-    private CategoryService categoryService;
+    public CategoryService categoryService;
 
-    private final ProductService productService;
+    @Autowired
+    private ProductService productService;
 
     @GetMapping
     public ModelAndView getHomeData()
@@ -45,15 +46,11 @@ public class HomeController {
 
 
     @GetMapping("/promotion")
-    public String getProductWithPromotion2(Model model){
+    public String getProductWithPromotion(Model model){
 
         model.addAttribute("categoryList", categoryService.getAllCategory());
         model.addAttribute("products", productService.getAllProduct());
         return "components/home/getPromotion.html";
     }
 
-
-    public HomeController(ProductService productService) {
-        this.productService = productService;
-    }
 }

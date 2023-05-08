@@ -65,12 +65,6 @@ public class PromotionServiceImpl implements PromotionService {
     }
 
     @Override
-    public void updatePromotion(Long promotionId, Promotion promotion) {
-        this.deletePromotion(promotionId);
-        promotionRepository.save(promotion);
-    }
-
-    @Override
     public void deletePromotion(Long id) {
         Product product = productService.getProductById(id);
         Promotion promotion = product.getPromotion();

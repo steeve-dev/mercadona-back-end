@@ -73,6 +73,16 @@ footer {
   justify-content: center;
 }
 
+.footer-div {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer-button-admin {
+  margin: auto;
+  margin-right: 10px;
+}
+
 .home-main-blocCategory {
   background-color: darkgray;
   width: 30vw;
@@ -625,6 +635,10 @@ footer {
 .category-form-label, .category-form-input, .promotion-form-submit {
   font-size: 1.4rem;
   margin-bottom: 1vh;
+}
+
+.category-list-ul {
+  margin-bottom: 25vh;
 }
 
 .category-list-li {

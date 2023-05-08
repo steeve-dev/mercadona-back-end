@@ -26,7 +26,7 @@ public class SecurityConfiguration {
                 .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                 .and()
                 .authorizeHttpRequests()
-                .requestMatchers("/admin/**", "api/**").authenticated()
+                .requestMatchers("/admin/**", "/target/**", "api/**").authenticated()
                 .requestMatchers("/", "/{id}", "/test", "/promotion/**", "/js/**", "category/**", "/images/**", "/styles/**", "/register", "/register/save")
                 .permitAll()
                 .and()
@@ -51,5 +51,4 @@ public class SecurityConfiguration {
     public void configure(AuthenticationManagerBuilder builder) throws Exception {
         builder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }
-
 }

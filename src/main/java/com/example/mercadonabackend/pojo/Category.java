@@ -2,11 +2,12 @@ package com.example.mercadonabackend.pojo;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
+@NoArgsConstructor
 @Entity
 public class Category {
     @Id
@@ -20,6 +21,15 @@ public class Category {
     @Column(name = "name")
     @Size(min = 1, max = 50)
     private String name;
+
+    public Category(String name) {
+        this.name = name;
+    }
+
+    public Category(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     @OneToMany(mappedBy = "category", orphanRemoval = true)
     private List<Product> products = new ArrayList<>();

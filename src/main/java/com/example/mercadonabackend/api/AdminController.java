@@ -5,6 +5,7 @@ import com.example.mercadonabackend.Service.ProductService;
 import com.example.mercadonabackend.pojo.Category;
 import com.example.mercadonabackend.pojo.Product;
 import com.example.mercadonabackend.pojo.Promotion;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +23,11 @@ public class AdminController {
 
     @Autowired
     private ProductService productService;
+
+    public AdminController(CategoryService categoryService, ProductService productService) {
+        this.categoryService = categoryService;
+        this.productService = productService;
+    }
 
     @GetMapping
     public ModelAndView getAdminData() {
@@ -46,9 +52,9 @@ public class AdminController {
     public String updateCategoryForm(@PathVariable(name = "id")Long id, Model model){
 
         model.addAttribute("category", categoryService.getCategoryById(id));
-
         return "components/admin/categoryUpdateForm.html";
     }
+
 
     @GetMapping("/product/add")
     public ModelAndView newProduct() {
@@ -90,8 +96,6 @@ public class AdminController {
         return getProductPage;
     }
 
-
-
     @GetMapping("/product/update/{id}")
     public ModelAndView productUpdate(@PathVariable(name = "id")Long id){
 
@@ -114,6 +118,4 @@ public class AdminController {
 
         return getPromtionPage;
     }
-
-
 }

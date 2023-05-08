@@ -30,7 +30,6 @@ public class ProductWs {
                     .map(ObjectError::getDefaultMessage)
                     .collect(Collectors.joining("; "));
             model.addAttribute("errorMessage", errorMessage);
-
             model.addAttribute("categoryList", categoryService.getAllCategory());
             model.addAttribute("newProduct", product);
 

@@ -29,14 +29,6 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public List<Product> getProductOfCategoryId(Long id) {
-
-        Optional<Category> currentCategory = categoryRepository.findById(id);
-        return null;
-    }
-
-
-    @Override
     public Category getCategoryById(Long id) {
         if (verifId(id)){
             Optional<Category> categoryOptional = categoryRepository.findById(id);
@@ -45,7 +37,11 @@ public class CategoryServiceImpl implements CategoryService {
         else {
             return null;
         }
+    }
 
+    @Override
+    public Category getCategoryByName(String name) {
+        return categoryRepository.findByName(name);
     }
 
     @Override

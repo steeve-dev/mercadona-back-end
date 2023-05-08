@@ -13,8 +13,6 @@ public interface PromotionService {
 
     void createPromotion(Promotion promotion, Product product, String endDate, String beginDate);
 
-    void updatePromotion(Long promotionId, Promotion promotion);
-
     void deletePromotion(Long id);
 
 }

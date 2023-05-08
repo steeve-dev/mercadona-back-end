@@ -49,6 +49,14 @@ public class Product implements Serializable {
     @JoinColumn(name = "category_id")
     private Category category;
 
+    public Product(String name, String description, String imageLink, Float price, Category category) {
+        this.name = name;
+        this.description = description;
+        this.imageLink = imageLink;
+        this.price = price;
+        this.category = category;
+    }
+
     public Float getPromotionPrice() {
         return promotionPrice;
     }

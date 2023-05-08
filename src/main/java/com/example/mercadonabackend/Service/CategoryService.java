@@ -13,12 +13,13 @@ public interface CategoryService {
 
     Category getCategoryById(Long id);
 
-    List<Product> getProductOfCategoryId(Long id);
+    Category getCategoryByName(String name);
 
     void updateCategory (Long categoryId, String newName);
 
     void createCategory(Category category);
 
     void deleteCategory(Long id);
+
 
 }

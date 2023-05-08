@@ -21,6 +21,7 @@ public class CategoryWs {
     @Autowired
     private CategoryService service;
 
+
     @PostMapping("{id}")
     public String updateCategory(@PathVariable(name = "id") Long id, @RequestParam(name = "newName") @Size(min = 1, max = 50) String newName, Model model){
         try {
