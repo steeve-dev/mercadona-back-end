@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 @Entity
+@Table(name = "product")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Product implements Serializable {

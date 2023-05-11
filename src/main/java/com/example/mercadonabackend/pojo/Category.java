@@ -9,6 +9,7 @@ import java.util.List;
 
 @NoArgsConstructor
 @Entity
+@Table(name = "category")
 public class Category {
     @Id
     @SequenceGenerator(name="category_seq",

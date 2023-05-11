@@ -10,6 +10,7 @@ import java.time.LocalDate;
 
 
 @Entity
+@Table(name = "promotion")
 public class Promotion implements Serializable {
     @Id
     @SequenceGenerator(name="promotion_seq",
