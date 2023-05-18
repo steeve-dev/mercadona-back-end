@@ -36,12 +36,10 @@ public class CategoryServiceTest {
 
     @Test
     public void testCreateCategory() {
-        // Given
         Category category = new Category();
         category.setId(2L);
         category.setName("test");
 
-        // When
         service.createCategory(category);
 
         assertEquals("test", category.getName());
@@ -49,7 +47,6 @@ public class CategoryServiceTest {
 
     @Test
     public void testDeleteCategory() {
-        // Given
         Long categoryId = 1L;
         Category category = new Category();
         category.setId(categoryId);
@@ -58,10 +55,9 @@ public class CategoryServiceTest {
         // Save category to repository
         repository.save(category);
 
-        // When
+        // And delete
         service.deleteCategory(categoryId);
 
-        // Then
         Optional<Category> deletedCategory = categoryRepository.findById(categoryId);
         assertFalse(deletedCategory.isPresent());
     }
