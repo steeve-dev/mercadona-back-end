@@ -1,6 +1,10 @@
 <form
         th:action="@{/api/category/{id}(id=${category.id})}"
         method="post">
+    <input
+            type="hidden"
+            th:name="${_csrf.parameterName}"
+            th:value="${_csrf.token}" />
     <label for="newName">Nouveau nom :</label>
     <input
             type="text"

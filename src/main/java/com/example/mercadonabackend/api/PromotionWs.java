@@ -4,7 +4,6 @@ import com.example.mercadonabackend.Service.ProductService;
 import com.example.mercadonabackend.Service.PromotionService;
 import com.example.mercadonabackend.pojo.Product;
 import com.example.mercadonabackend.pojo.Promotion;
-import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -4,8 +4,8 @@ spring:
       matching-strategy: ant_path_matcher
   datasource:
     url: jdbc:postgresql://postgresql-steeve.alwaysdata.net/steeve_mercadona
-    username: steeve
-    password: Cycliste35
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: update

@@ -68,6 +68,7 @@ public class CategoryServiceImpl implements CategoryService {
 
 
     private boolean verifId(Long id){
-        return id != null; //return True si id != 0 sinon, false
+        return id != null;
+        //return True if id != 0
     }
 }

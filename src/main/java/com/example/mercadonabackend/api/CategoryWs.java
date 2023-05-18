@@ -2,7 +2,6 @@ package com.example.mercadonabackend.api;
 
 
 import com.example.mercadonabackend.Service.CategoryService;
-import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Size;
 import org.springframework.stereotype.Controller;
@@ -32,9 +31,7 @@ public class CategoryWs {
             model.addAttribute("errorUpdateMessage", "La saisie doit être une chaine de caractères entre 1 et 50 caractères.");
             return "adminCategory.html";
         }
-        model.addAttribute("newCategory", new Category());
-        model.addAttribute("categoryList", service.getAllCategory());
-        return "adminCategory.html";
+        return "redirect:/admin/category";
     }
 
     @PostMapping("/post")

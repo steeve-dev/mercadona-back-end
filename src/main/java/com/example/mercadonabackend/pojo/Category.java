@@ -23,6 +23,11 @@ public class Category {
     @Size(min = 1, max = 50)
     private String name;
 
+    @OneToMany(mappedBy = "category", orphanRemoval = true)
+    private List<Product> products = new ArrayList<>();
+
+    // constructor
+
     public Category(String name) {
         this.name = name;
     }
@@ -32,8 +37,7 @@ public class Category {
         this.name = name;
     }
 
-    @OneToMany(mappedBy = "category", orphanRemoval = true)
-    private List<Product> products = new ArrayList<>();
+    // getters and setters
 
     public List<Product> getProducts() {
         return products;

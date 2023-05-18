@@ -201,16 +201,13 @@ public class AdminControllerTest {
 
     @Test
     public void testProductManagementByPromotion() {
-        // Given
         List<Product> productList = Arrays.asList(new Product(), new Product());
         when(getProductService.getAllProduct()).thenReturn(productList);
         List<Category> categoryList = Arrays.asList(new Category(), new Category());
         when(categoryService.getAllCategory()).thenReturn(categoryList);
 
-        // When
         ModelAndView result = adminController.productManagementByPromotion();
 
-        // Then
         verify(getProductService, times(1)).getAllProduct();
         verify(categoryService, times(1)).getAllCategory();
         assertEquals("adminProductByPromotion.html", result.getViewName());
@@ -220,7 +217,6 @@ public class AdminControllerTest {
 
     @Test
     public void testProductManagementByCategory() {
-        // Given
         Long categoryId = 1L;
         Category category = new Category();
         category.setId(categoryId);
@@ -229,16 +225,13 @@ public class AdminControllerTest {
         when(categoryService.getCategoryById(categoryId)).thenReturn(category);
         when(getProductService.getProductByCategory(category)).thenReturn(products);
 
-        // When
         ModelAndView modelAndView = adminController.productManagementByCategory(categoryId);
 
-        // Then
         verify(categoryService, times(1)).getCategoryById(categoryId);
         verify(getProductService, times(1)).getProductByCategory(category);
         assertEquals("adminProduct.html", modelAndView.getViewName());
         assertTrue(modelAndView.getModel().containsKey("categoryList"));
         assertTrue(modelAndView.getModel().containsKey("products"));
     }
-
 }
 

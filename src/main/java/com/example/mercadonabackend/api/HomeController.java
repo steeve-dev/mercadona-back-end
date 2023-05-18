@@ -1,6 +1,5 @@
 package com.example.mercadonabackend.api;
 
-
 import com.example.mercadonabackend.Service.CategoryService;
 import com.example.mercadonabackend.Service.ProductService;
 import com.example.mercadonabackend.pojo.Category;
