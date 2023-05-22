@@ -10,6 +10,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
@@ -34,7 +35,7 @@ public class TestCategoryWs {
         category.setName("test category");
         BindingResult bindingResult = mock(BindingResult.class);
         Model model = mock(Model.class);
-        String result = categoryWs.createCategory(category, bindingResult, model);
+        String result = categoryWs.createCategory(category, bindingResult, model, null);
         assertEquals("redirect:/admin/category", result);
     }
 
@@ -44,7 +45,7 @@ public class TestCategoryWs {
         Long id = 1L;
         doNothing().when(categoryService).deleteCategory(id);
 
-        String result = controller.deleteCategory(id);
+        String result = controller.deleteCategory(id, null);
 
         verify(categoryService, times(1)).deleteCategory(id);
         assertEquals("redirect:/admin/category", result);

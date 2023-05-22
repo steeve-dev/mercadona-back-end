@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.stream.Collectors;
 
@@ -41,7 +42,7 @@ public class ProductWs {
     }
 
     @PostMapping("/post")
-    public String createProduct(@Valid Product product, BindingResult result, Model model){
+    public String createProduct(@Valid Product product, BindingResult result, Model model, RedirectAttributes redirectAttributes){
         if (result.hasErrors()) {
             String errorMessage = result.getAllErrors().stream()
                     .map(ObjectError::getDefaultMessage)
@@ -53,12 +54,14 @@ public class ProductWs {
             return "adminNewProduct.html";
         }
         service.createProduct(product);
+        redirectAttributes.addFlashAttribute("successMessage", "Le produit a été créé avec succès !");
         return "redirect:/admin/product";
     }
 
     @GetMapping("delete/{id}")
-    public String deleteProduct(@PathVariable(name = "id")Long id){
+    public String deleteProduct(@PathVariable(name = "id")Long id, RedirectAttributes redirectAttributes){
         service.deleteProduct(id);
+        redirectAttributes.addFlashAttribute("successMessage", "Le produit a bien été supprimé !");
         return "redirect:/admin/product";
     }
 }

@@ -51,7 +51,7 @@ public class TestProductWs {
         BindingResult bindingResult = mock(BindingResult.class);
         Model model = mock(Model.class);
 
-        String result = productWs.createProduct(product, bindingResult, model);
+        String result = productWs.createProduct(product, bindingResult, model, null);
 
         assertEquals("redirect:/admin/product", result);
         assertNotNull(product.getId());
@@ -64,7 +64,7 @@ public class TestProductWs {
         doNothing().when(productService).deleteProduct(id);
 
         // When
-        String result = controller.deleteProduct(id);
+        String result = controller.deleteProduct(id, null);
 
         // Then
         verify(productService, times(1)).deleteProduct(id);
