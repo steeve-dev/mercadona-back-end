@@ -24,11 +24,13 @@ public class AdminController {
     @Autowired
     private ProductService productService;
 
+    // constructor
     public AdminController(CategoryService categoryService, ProductService productService) {
         this.categoryService = categoryService;
         this.productService = productService;
     }
 
+    // Get admin menu
     @GetMapping
     public ModelAndView getAdminData() {
         ModelAndView getAdminPage = new ModelAndView();
@@ -38,6 +40,7 @@ public class AdminController {
     }
 
 
+    // Get category management page
     @GetMapping("/category")
     public ModelAndView categoryManagement() {
         ModelAndView getCategoryPage = new ModelAndView();
@@ -49,6 +52,7 @@ public class AdminController {
         return getCategoryPage;
     }
 
+    // Get category form component for update
     @GetMapping("category/update/{id}")
     public String updateCategoryForm(@PathVariable(name = "id")Long id, Model model){
 
@@ -57,6 +61,7 @@ public class AdminController {
     }
 
 
+    // Get the page for create new product
     @GetMapping("/product/add")
     public ModelAndView newProduct() {
         ModelAndView getNewProductPage = new ModelAndView();
@@ -68,6 +73,7 @@ public class AdminController {
         return getNewProductPage;
     }
 
+    // Get product management page
     @GetMapping("/product")
     public ModelAndView productManagement() {
         ModelAndView getProductPage = new ModelAndView();
@@ -77,6 +83,7 @@ public class AdminController {
         return getProductPage;
     }
 
+    // The same page than ("/product"), but by category
     @GetMapping("/product/{id}")
     public ModelAndView productManagementByCategory(@PathVariable(name = "id")Long id) {
         ModelAndView getProductPage = new ModelAndView();
@@ -88,6 +95,7 @@ public class AdminController {
         return getProductPage;
     }
 
+    // The same page than ("/product"), but only promotion
     @GetMapping("/product/promotion")
     public ModelAndView productManagementByPromotion() {
         ModelAndView getProductPage = new ModelAndView();
@@ -97,6 +105,7 @@ public class AdminController {
         return getProductPage;
     }
 
+    // Get update product page
     @GetMapping("/product/update/{id}")
     public ModelAndView productUpdate(@PathVariable(name = "id")Long id){
 
@@ -109,6 +118,7 @@ public class AdminController {
         return getUpdateFormProduct;
     }
 
+    // Get promotion form page for create new promotion
     @GetMapping("/add/promotion/{id}")
     public ModelAndView createPromotion(@PathVariable(name = "id")Long id){
         ModelAndView getPromtionPage = new ModelAndView();

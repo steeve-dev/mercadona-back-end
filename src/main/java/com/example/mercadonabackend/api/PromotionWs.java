@@ -28,6 +28,7 @@ public class PromotionWs {
 
     @PostMapping("/post/{id}")
     public String createPromotion(@Valid Promotion promotion, BindingResult result, @PathVariable(name = "id") Product product, HttpServletRequest request, Model model) {
+        // checking if result has an error
         if (result.hasErrors()) {
             String errorMessage = result.getAllErrors().stream()
                     .map(ObjectError::getDefaultMessage)
@@ -38,6 +39,7 @@ public class PromotionWs {
             model.addAttribute("product", productService.getProductById(product.getId()));
             return "adminAddPromotion";
         }
+        // return product management page and create new promotion
         String endDate = request.getParameter("dateEnd");
         String beginDate = request.getParameter("dateBegin");
         promotionService.createPromotion(promotion, product, endDate, beginDate);

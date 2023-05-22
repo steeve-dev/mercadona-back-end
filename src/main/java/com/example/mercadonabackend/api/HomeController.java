@@ -21,6 +21,7 @@ public class HomeController {
     @Autowired
     private ProductService productService;
 
+    // Home page
     @GetMapping
     public ModelAndView getHomeData()
     {
@@ -32,6 +33,7 @@ public class HomeController {
         return getCategory;
     }
 
+    // Components for home page, with product by category
     @GetMapping("category/{id}")
     public String getProductByCategory(@PathVariable(name = "id")Long id, Model model)
     {
@@ -44,6 +46,7 @@ public class HomeController {
     }
 
 
+    // Components for home page, with product only with promotion
     @GetMapping("/promotion")
     public String getProductWithPromotion(Model model){
 

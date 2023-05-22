@@ -9,12 +9,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 @RequiredArgsConstructor
 public class UserController {
 
+    // get login page
     @GetMapping("/login")
     public String loginPage() {
         return "login";
     }
 
 
+    // logout link
     @GetMapping("/logout")
     public String logout() {
         return "index";
