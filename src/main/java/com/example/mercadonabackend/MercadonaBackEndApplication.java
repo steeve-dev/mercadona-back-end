@@ -10,7 +10,6 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 public class MercadonaBackEndApplication {
     public static void main(String[] args){
-        System.out.println(System.getenv("DATABASE_USERNAME"));
         SpringApplication.run(MercadonaBackEndApplication.class, args);
     }
 }

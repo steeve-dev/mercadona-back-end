@@ -24,7 +24,7 @@ public class ProductWs {
     private CategoryService categoryService;
 
     @PostMapping("/put/{id}")
-    public String updateProduct(@PathVariable(name="id")Long id, @Valid Product product, BindingResult result, Model model){
+    public String updateProduct(@PathVariable(name="id")Long id, @Valid Product product, BindingResult result, Model model, RedirectAttributes redirectAttributes){
 
         if (result.hasErrors()) {
             String errorMessage = result.getAllErrors().stream()
@@ -36,8 +36,8 @@ public class ProductWs {
 
             return "adminUpdateProduct.html";
         }
-
         service.updateProduct(id, product);
+        redirectAttributes.addFlashAttribute("successMessage", "Le produit a été modifié avec succès !");
         return "redirect:/admin/product";
     }
 
