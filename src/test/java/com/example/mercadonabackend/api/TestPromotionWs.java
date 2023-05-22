@@ -87,7 +87,7 @@ public class TestPromotionWs {
 
         // When
         String result = controller.createPromotion(promotion, new BeanPropertyBindingResult(promotion, "promotion"),
-                product, request, model);
+                product, request, model, null);
 
         // Then
         assertEquals("redirect:/admin/product", result);
@@ -98,7 +98,7 @@ public class TestPromotionWs {
         Long id = 1L;
         doNothing().when(service).deletePromotion(id);
 
-        String result = controller.deletePromotion(id);
+        String result = controller.deletePromotion(id, null);
 
         verify(service, times(1)).deletePromotion(id);
         assertEquals("redirect:/admin/product", result);

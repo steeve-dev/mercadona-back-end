@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.swing.*;
 
@@ -35,23 +36,22 @@ public class CategoryWs {
     }
 
     @PostMapping("/post")
-    public String createCategory(@Valid Category category, BindingResult bindingResult, Model model) {
+    public String createCategory(@Valid Category category, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("newCategory", category);
             model.addAttribute("categoryList", service.getAllCategory());
             model.addAttribute("errorMessage", "Le nom de la catégorie doit contenir entre 1 et 50 caractère.");
             return "adminCategory.html";
         }
-        model.addAttribute("newCategory", category);
-        model.addAttribute("categoryList", service.getAllCategory());
         service.createCategory(category);
+        redirectAttributes.addFlashAttribute("successMessage", "La catégorie à été ajouté avec succès !");
         return "redirect:/admin/category";
     }
 
     @GetMapping("delete/{id}")
-    public String deleteCategory(@PathVariable(name = "id") Long id){
+    public String deleteCategory(@PathVariable(name = "id") Long id, RedirectAttributes redirectAttributes){
         service.deleteCategory(id);
+        redirectAttributes.addFlashAttribute("successMessage", "Le produit a bien été supprimé !");
         return "redirect:/admin/category";
     }
-
 }
